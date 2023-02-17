@@ -1,7 +1,13 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { RouterModule, Routes } from "@angular/router";
-export const webShellRoutes: Routes = [];
+import { Routes, RouterModule } from "@angular/router";
+import { LayoutComponent } from "@bn/web/shell/ui/layout";
+export const webShellRoutes: Routes = [
+	{
+		path: "",
+		component: LayoutComponent,
+	},
+];
 
 @NgModule({
 	imports: [CommonModule, RouterModule.forRoot(webShellRoutes)],
