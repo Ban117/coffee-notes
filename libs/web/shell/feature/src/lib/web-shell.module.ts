@@ -2,6 +2,8 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
 import { LayoutComponent } from "@bn/web/shell/ui/layout";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 export const webShellRoutes: Routes = [
 	{
 		path: "",
@@ -10,7 +12,11 @@ export const webShellRoutes: Routes = [
 ];
 
 @NgModule({
-	imports: [CommonModule, RouterModule.forRoot(webShellRoutes)],
+	imports: [
+		CommonModule,
+		RouterModule.forRoot(webShellRoutes),
+		BrowserAnimationsModule,
+	],
 	exports: [RouterModule],
 })
 export class WebShellModule {}
