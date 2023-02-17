@@ -1,25 +1,182 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
+// ! should probably move these to a .theme file and then add that to something.json
 @use "@angular/material" as mat;
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$coffee-notes-primary: mat.define-palette(mat.$indigo-palette);
-$coffee-notes-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// Foreground Elements
 
-// The warn palette is optional (defaults to red).
+// Light Theme Text
+$dark-text: #402d2d;
+$dark-primary-text: rgba($dark-text, 0.87);
+$dark-accent-text: rgba($dark-primary-text, 0.54);
+$dark-disabled-text: rgba($dark-primary-text, 0.38);
+$dark-dividers: rgba($dark-primary-text, 0.12);
+$dark-focused: rgba($dark-primary-text, 0.12);
+
+$mat-light-theme-foreground: (
+	base: black,
+	divider: $dark-dividers,
+	dividers: $dark-dividers,
+	disabled: $dark-disabled-text,
+	disabled-button: rgba($dark-text, 0.26),
+	disabled-text: $dark-disabled-text,
+	elevation: black,
+	secondary-text: $dark-accent-text,
+	hint-text: $dark-disabled-text,
+	accent-text: $dark-accent-text,
+	icon: $dark-accent-text,
+	icons: $dark-accent-text,
+	text: $dark-primary-text,
+	slider-min: $dark-primary-text,
+	slider-off: rgba($dark-text, 0.26),
+	slider-off-active: $dark-disabled-text,
+);
+
+// Dark Theme text
+$light-text: #ede0df;
+$light-primary-text: $light-text;
+$light-accent-text: rgba($light-primary-text, 0.7);
+$light-disabled-text: rgba($light-primary-text, 0.5);
+$light-dividers: rgba($light-primary-text, 0.12);
+$light-focused: rgba($light-primary-text, 0.12);
+
+$mat-dark-theme-foreground: (
+	base: $light-text,
+	divider: $light-dividers,
+	dividers: $light-dividers,
+	disabled: $light-disabled-text,
+	disabled-button: rgba($light-text, 0.3),
+	disabled-text: $light-disabled-text,
+	elevation: black,
+	hint-text: $light-disabled-text,
+	secondary-text: $light-accent-text,
+	accent-text: $light-accent-text,
+	icon: $light-text,
+	icons: $light-text,
+	text: $light-text,
+	slider-min: $light-text,
+	slider-off: rgba($light-text, 0.3),
+	slider-off-active: rgba($light-text, 0.3),
+);
+
+// Background config
+// Light bg
+$light-background: #ede6e6;
+$light-bg-darker-5: darken($light-background, 5%);
+$light-bg-darker-10: darken($light-background, 10%);
+$light-bg-darker-20: darken($light-background, 20%);
+$light-bg-darker-30: darken($light-background, 30%);
+$light-bg-lighter-5: lighten($light-background, 5%);
+$dark-bg-tooltip: lighten(#1e1919, 20%);
+$dark-bg-alpha-4: rgba(#1e1919, 0.04);
+$dark-bg-alpha-12: rgba(#1e1919, 0.12);
+
+$light-theme-background-palette: (
+	background: $light-background,
+	status-bar: $light-bg-darker-20,
+	app-bar: $light-bg-darker-5,
+	hover: $dark-bg-alpha-4,
+	card: $light-bg-lighter-5,
+	dialog: $light-bg-lighter-5,
+	tooltip: $dark-bg-tooltip,
+	disabled-button: $dark-bg-alpha-12,
+	raised-button: $light-bg-lighter-5,
+	focused-button: $dark-focused,
+	selected-button: $light-bg-darker-20,
+	selected-disabled-button: $light-bg-darker-30,
+	disabled-button-toggle: $light-bg-darker-10,
+	unselected-chip: $light-bg-darker-10,
+	disabled-list-option: $light-bg-darker-10,
+);
+
+// Dark bg
+$dark-background: #1e1919;
+$dark-bg-lighter-5: lighten($dark-background, 5%);
+$dark-bg-lighter-10: lighten($dark-background, 10%);
+$dark-bg-lighter-20: lighten($dark-background, 20%);
+$dark-bg-lighter-30: lighten($dark-background, 30%);
+$light-bg-alpha-4: rgba(#ede6e6, 0.04);
+$light-bg-alpha-12: rgba(#ede6e6, 0.12);
+
+// ? So this was deprecated in favor of `$light-theme-background-palette`
+// Background palette for dark themes.
+$mat-dark-theme-background: (
+	background: $dark-background,
+	status-bar: $dark-bg-lighter-20,
+	app-bar: $dark-bg-lighter-5,
+	hover: $light-bg-alpha-4,
+	card: $dark-bg-lighter-5,
+	dialog: $dark-bg-lighter-5,
+	tooltip: $dark-bg-lighter-20,
+	disabled-button: $light-bg-alpha-12,
+	raised-button: $dark-bg-lighter-5,
+	focused-button: $light-focused,
+	selected-button: $dark-bg-lighter-20,
+	selected-disabled-button: $dark-bg-lighter-30,
+	disabled-button-toggle: $dark-bg-lighter-10,
+	unselected-chip: $dark-bg-lighter-20,
+	disabled-list-option: $dark-bg-lighter-10,
+);
+
+$mat-primary: (
+	50: #ededed,
+	100: #d1d1d1,
+	200: #b2b2b2,
+	300: #9a9191,
+	400: #897877,
+	500: #785f5f,
+	600: #6b5656,
+	700: #5a4a4a,
+	800: #4e3c3c,
+	900: #3a3132,
+	contrast: (
+		50: $dark-primary-text,
+		100: $dark-primary-text,
+		200: $dark-primary-text,
+		300: $dark-primary-text,
+		400: $dark-primary-text,
+		500: $light-primary-text,
+		600: $light-primary-text,
+		700: $light-primary-text,
+		800: $light-primary-text,
+		900: $light-primary-text,
+	),
+);
+
+$mat-accent: (
+	50: #fff0f1,
+	100: #ffdad9,
+	200: #f4b0a5,
+	300: #f09080,
+	400: #fd7a5a,
+	500: #ff703d,
+	600: #f6693f,
+	700: #e35f39,
+	800: #d65833,
+	900: #c74f26,
+	contrast: (
+		50: $dark-primary-text,
+		100: $dark-primary-text,
+		200: $dark-primary-text,
+		300: $dark-primary-text,
+		400: $dark-primary-text,
+		500: $dark-primary-text,
+		600: $dark-primary-text,
+		700: $dark-primary-text,
+		800: $dark-primary-text,
+		900: $dark-primary-text,
+	),
+);
+
+$coffee-notes-primary: mat.define-palette($mat-primary, 600, 200, 800);
+$coffee-notes-accent: mat.define-palette($mat-accent, 100, 50, 300);
+
+// todo decide on this
 $coffee-notes-warn: mat.define-palette(mat.$red-palette);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$coffee-notes-theme: mat.define-light-theme(
+$coffee-notes-theme: mat.define-dark-theme(
 	(
 		color: (
 			primary: $coffee-notes-primary,
@@ -29,10 +186,18 @@ $coffee-notes-theme: mat.define-light-theme(
 	)
 );
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($coffee-notes-theme);
+$hack-theme: (
+	primary: $coffee-notes-primary,
+	accent: $coffee-notes-accent,
+	warn: $coffee-notes-warn,
+	is-dark: true,
+	foreground: $mat-dark-theme-foreground,
+	background: $mat-dark-theme-background,
+);
+
+// todo replace this with only used components
+@include mat.all-component-themes($hack-theme);
+@include mat.core-theme($hack-theme);
 
 /* You can add global styles to this file, and also import other style files */
 

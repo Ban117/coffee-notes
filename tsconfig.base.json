@@ -19,9 +19,6 @@
 			"@bn/web/shell/ui/layout": [
 				"libs/web/shell/ui/layout/src/index.ts"
 			],
-			"@bn/web/shell/ui/navigation": [
-				"libs/web/shell/ui/navigation/src/index.ts"
-			],
 			"@bn/web/ui/layout": ["libs/web/ui/layout/src/index.ts"]
 		}
 	},
