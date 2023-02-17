@@ -3,7 +3,8 @@ import { environment } from "../environments/environment";
 
 @Component({
 	selector: "bn-root",
-	templateUrl: "./app.component.html",
+	host: { class: "bn-root" },
+	template: `<router-outlet></router-outlet>`,
 	styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
