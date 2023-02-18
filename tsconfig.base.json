@@ -15,13 +15,16 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
+			"@bn/web/shared/app-config": [
+				"libs/web/shared/app-config/src/index.ts"
+			],
 			"@bn/web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
 			"@bn/web/shell/ui/layout": [
 				"libs/web/shell/ui/layout/src/index.ts"
 			],
 			"@bn/web/shell/ui/top-bar": [
 				"libs/web/shell/ui/top-bar/src/index.ts"
-			],
+			]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

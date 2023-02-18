@@ -5,15 +5,16 @@ import { WebShellModule } from "@bn/web/shell/feature";
 
 import { AppComponent } from "./app.component";
 import { environment } from "../environments/environment";
+import { getAppConfigProvider } from "@bn/web/shared/app-config";
 
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
 		WebShellModule,
-		AngularFireModule.initializeApp(environment.firebaseConfig),
+		AngularFireModule.initializeApp(environment.firebaseConfig), // todo maybe move this to `web-shell` module
 	],
-	providers: [],
+	providers: [getAppConfigProvider(environment)],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

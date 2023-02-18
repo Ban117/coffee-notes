@@ -4,7 +4,6 @@ import { Routes, RouterModule } from "@angular/router";
 import { LayoutComponent } from "@bn/web/shell/ui/layout";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-// todo add AngularFire
 export const webShellRoutes: Routes = [
 	{
 		path: "",

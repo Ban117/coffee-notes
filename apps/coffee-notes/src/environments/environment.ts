@@ -1,4 +1,6 @@
-export const environment = {
+import { AppConfig } from "@bn/web/shared/app-config";
+
+export const environment: AppConfig = {
 	testing: "prod",
 	firebaseConfig: {
 		apiKey: "AIzaSyCxcGmnw4O5OBC_3BQMztCVPr1PnZp9xbs",
