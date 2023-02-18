@@ -7,11 +7,11 @@
 		[mode]="(isHandset$ | async) ? 'over' : 'side'"
 		[opened]="(isHandset$ | async) === false"
 	>
-		<mat-toolbar>Menu</mat-toolbar>
+		<mat-toolbar>username - avatar</mat-toolbar>
 		<mat-nav-list>
 			<a
 				mat-list-item
-				href="#"
+				routerLink=""
 				>Link 1</a
 			>
 			<a
@@ -27,18 +27,11 @@
 		</mat-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content>
-		<mat-toolbar color="primary">
-			<button
-				type="button"
-				aria-label="Toggle sidenav"
-				mat-icon-button
-				(click)="drawer.toggle()"
-				*ngIf="isHandset$ | async"
-			>
-				<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-			</button>
-			<span>web-shell-ui-navigation</span>
-		</mat-toolbar>
-		<!-- Add Content Here -->
+		<bn-top-bar
+			[isHandset$]="isHandset$"
+			(menuClick)="drawer.toggle()"
+			iconName="coffee"
+			title="Coffee App"
+		></bn-top-bar>
 	</mat-sidenav-content>
 </mat-sidenav-container>

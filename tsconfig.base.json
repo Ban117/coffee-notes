@@ -19,7 +19,9 @@
 			"@bn/web/shell/ui/layout": [
 				"libs/web/shell/ui/layout/src/index.ts"
 			],
-			"@bn/web/ui/layout": ["libs/web/ui/layout/src/index.ts"]
+			"@bn/web/shell/ui/top-bar": [
+				"libs/web/shell/ui/top-bar/src/index.ts"
+			],
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
