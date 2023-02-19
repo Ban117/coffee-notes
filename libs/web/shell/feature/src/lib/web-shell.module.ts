@@ -15,6 +15,14 @@ export const webShellRoutes: Routes = [
 	{
 		path: "",
 		component: LayoutComponent,
+		children: [
+			{
+				path: "auth",
+				loadChildren: async () =>
+					(await import("@bn/web/auth/feature/shell"))
+						.WebAuthFeatureShellModule,
+			},
+		],
 	},
 	// todo add /auth (maybe it'll just be a shell, or a container) as child, lazily loaded
 ];

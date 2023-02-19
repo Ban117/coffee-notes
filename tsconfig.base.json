@@ -21,6 +21,9 @@
 			"@bn/web/auth/data-access": [
 				"libs/web/auth/data-access/src/index.ts"
 			],
+			"@bn/web/auth/feature/container": [
+				"libs/web/auth/feature/container/src/index.ts"
+			],
 			"@bn/web/auth/feature/login": [
 				"libs/web/auth/feature/login/src/index.ts"
 			],
@@ -29,6 +32,9 @@
 			],
 			"@bn/web/auth/feature/sign-up": [
 				"libs/web/auth/feature/sign-up/src/index.ts"
+			],
+			"@bn/web/shared/ui/animation": [
+				"libs/web/shared/ui/animation/src/index.ts"
 			],
 			"@bn/web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
 			"@bn/web/shell/ui/layout": [

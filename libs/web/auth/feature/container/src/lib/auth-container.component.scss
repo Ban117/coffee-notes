@@ -1,0 +1,20 @@
+.bn-auth-container {
+	display: block;
+	margin: 20px 5%;
+
+	&__card {
+		height: 400px;
+		overflow: hidden;
+	}
+
+	&__panel {
+		display: block;
+		// todo center this better
+		margin-top: 20px;
+	}
+
+	&__title,
+	&__panel {
+		text-align: center;
+	}
+}

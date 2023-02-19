@@ -91,8 +91,20 @@ $coffee-notes-theme: mat.define-dark-theme(
 	)
 );
 
-// todo replace this with only used components and maybe `mat.core-theme()`
-@include mat.all-component-themes($coffee-notes-theme);
+// todo sort these
+@include mat.core-theme($coffee-notes-theme);
+@include mat.button-theme($coffee-notes-theme);
+@include mat.toolbar-theme($coffee-notes-theme);
+@include mat.tabs-theme($coffee-notes-theme);
+@include mat.card-theme($coffee-notes-theme);
+@include mat.form-field-theme($coffee-notes-theme);
+@include mat.input-theme($coffee-notes-theme);
+@include mat.snack-bar-theme($coffee-notes-theme);
+@include mat.sidenav-theme($coffee-notes-theme);
+@include mat.tooltip-theme($coffee-notes-theme);
+@include mat.stepper-theme($coffee-notes-theme);
+@include mat.radio-theme($coffee-notes-theme);
+@include mat.slider-theme($coffee-notes-theme);
 
 html,
 body {

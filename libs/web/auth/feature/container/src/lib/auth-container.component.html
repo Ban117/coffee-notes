@@ -1,0 +1,32 @@
+<mat-card class="bn-auth-container__card">
+	<mat-card-title class="bn-auth-container__title">
+		<!-- todo get app title -->
+		Welcome to Clerk Coffee ☕️
+	</mat-card-title>
+
+	<nav
+		mat-tab-nav-bar
+		mat-align-tabs="center"
+		[tabPanel]="tabPanel"
+	>
+		<a
+			*ngFor="let link of navLinks"
+			mat-tab-link
+			#rla="routerLinkActive"
+			[routerLink]="link.link"
+			routerLinkActive
+			[active]="rla.isActive"
+		>
+			{{ link.label }}
+		</a>
+	</nav>
+
+	<mat-tab-nav-panel
+		class="bn-auth-container__panel"
+		#tabPanel
+	>
+		<div [@routeAnimation]="getAnimationData()">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-tab-nav-panel>
+</mat-card>

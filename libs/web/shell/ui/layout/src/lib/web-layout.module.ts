@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
 import { LayoutComponent } from "./layout.component";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -13,6 +14,7 @@ import { WebTopBarModule } from "@bn/web/shell/ui/top-bar";
 	imports: [
 		CommonModule,
 		LayoutModule,
+		RouterModule,
 		MatToolbarModule,
 		MatButtonModule,
 		MatSidenavModule,
