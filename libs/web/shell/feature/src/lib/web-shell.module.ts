@@ -24,7 +24,6 @@ export const webShellRoutes: Routes = [
 			},
 		],
 	},
-	// todo add /auth (maybe it'll just be a shell, or a container) as child, lazily loaded
 ];
 
 @NgModule({

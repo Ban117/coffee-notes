@@ -1,1 +1,3 @@
-export * from "./lib/web-auth-feature-login.module";
+export * from "./lib/web-auth-login.module";
+
+export * from "./lib/login.component";

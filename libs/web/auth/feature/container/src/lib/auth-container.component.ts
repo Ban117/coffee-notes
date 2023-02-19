@@ -30,6 +30,11 @@ export class AuthContainerComponent {
 	constructor(private contexts: ChildrenOutletContexts) {}
 
 	getAnimationData() {
+		console.warn(
+			">>>> x",
+			this.contexts.getContext("primary")?.route?.snapshot?.data
+		);
+
 		return this.contexts.getContext("primary")?.route?.snapshot?.data?.[
 			"animation"
 		];
