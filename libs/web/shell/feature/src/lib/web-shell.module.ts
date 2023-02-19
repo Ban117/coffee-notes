@@ -16,6 +16,7 @@ export const webShellRoutes: Routes = [
 		path: "",
 		component: LayoutComponent,
 	},
+	// todo add /auth (maybe it'll just be a shell, or a container) as child, lazily loaded
 ];
 
 @NgModule({
