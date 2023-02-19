@@ -1,1 +1,1 @@
-export * from "./lib/web-auth-feature-shell.module";
+export * from "./lib/web-auth-shell.module";

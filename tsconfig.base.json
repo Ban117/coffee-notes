@@ -18,6 +18,9 @@
 			"@bn/shared/environments": [
 				"libs/shared/environments/src/index.ts"
 			],
+			"@bn/web/auth/data-access": [
+				"libs/web/auth/data-access/src/index.ts"
+			],
 			"@bn/web/auth/feature/login": [
 				"libs/web/auth/feature/login/src/index.ts"
 			],
