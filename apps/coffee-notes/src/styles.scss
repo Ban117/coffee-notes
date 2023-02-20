@@ -88,6 +88,7 @@ $coffee-notes-theme: mat.define-dark-theme(
 			accent: $coffee-notes-accent,
 			warn: $coffee-notes-warn,
 		),
+		typography: mat.define-typography-config(),
 	)
 );
 

@@ -19,22 +19,17 @@ export class AuthContainerComponent {
 	navLinks = [
 		{
 			label: "Login",
-			link: "./login",
+			link: "login",
 		},
 		{
 			label: "Sign Up",
-			link: "./sign-up",
+			link: "sign-up",
 		},
 	];
 
 	constructor(private contexts: ChildrenOutletContexts) {}
 
 	getAnimationData() {
-		console.warn(
-			">>>> x",
-			this.contexts.getContext("primary")?.route?.snapshot?.data
-		);
-
 		return this.contexts.getContext("primary")?.route?.snapshot?.data?.[
 			"animation"
 		];
