@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { environment } from "@bn/shared/environments";
 
 @Component({
 	selector: "bn-root",
@@ -9,9 +8,4 @@ import { environment } from "@bn/shared/environments";
 })
 export class AppComponent {
 	title = "coffee-notes";
-	something = environment.testing;
-
-	constructor() {
-		console.warn(">>>> this.something", this.something);
-	}
 }

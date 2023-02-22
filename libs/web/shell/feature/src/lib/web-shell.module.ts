@@ -7,9 +7,11 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { environment } from "@bn/shared/environments";
 import { NgxsModule } from "@ngxs/store";
 import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
+
+import { AuthState } from "@bn/web/auth/data-access";
 import { NgxsLoggerPluginModule } from "@ngxs/logger-plugin";
 
-export const APP_STATE = [{}];
+export const APP_STATE = [AuthState];
 
 export const webShellRoutes: Routes = [
 	{
@@ -32,7 +34,7 @@ export const webShellRoutes: Routes = [
 		RouterModule.forRoot(webShellRoutes),
 		BrowserAnimationsModule,
 		AngularFireModule.initializeApp(environment.firebaseConfig),
-		NgxsModule.forRoot([]),
+		NgxsModule.forRoot(APP_STATE),
 		NgxsReduxDevtoolsPluginModule.forRoot(),
 		NgxsLoggerPluginModule.forRoot({}),
 	],

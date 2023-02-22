@@ -3,6 +3,7 @@ import {
 	Component,
 	ViewEncapsulation,
 } from "@angular/core";
+import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { ChildrenOutletContexts } from "@angular/router";
 import { slideInAnimation } from "@bn/web/shared/ui/animation";
 
@@ -27,7 +28,10 @@ export class AuthContainerComponent {
 		},
 	];
 
-	constructor(private contexts: ChildrenOutletContexts) {}
+	constructor(
+		private contexts: ChildrenOutletContexts,
+		private angularFireAuth: AngularFireAuth,
+	) {}
 
 	getAnimationData() {
 		return this.contexts.getContext("primary")?.route?.snapshot?.data?.[
