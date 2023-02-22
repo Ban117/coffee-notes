@@ -43,8 +43,8 @@ export class AuthService {
 		}
 
 		switch (errorRes.code) {
-			case "auth/email-already-exists":
-				errorMessage = "This email exists already.";
+			case "auth/email-already-in-use":
+				errorMessage = "This email is already in use.";
 				break;
 			case "auth/user-not-found":
 				errorMessage = "This email does not exist.";

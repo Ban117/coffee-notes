@@ -1,5 +1,50 @@
-<p>sign-up works!</p>
+<form
+	[formGroup]="form"
+	(ngSubmit)="signUp()"
+	class="bn-sign-up__form-container"
+>
+	<mat-form-field class="bn-sign-up__field">
+		<mat-label>Email</mat-label>
+		<input
+			matInput
+			[formControl]="emailControl"
+			type="email"
+			autocomplete="off"
+		/>
+		<mat-error> {{ getError(emailControl) }} </mat-error>
+	</mat-form-field>
 
-<button (click)="signUp()">Sign up</button>
-<button (click)="login()">Login</button>
-<button (click)="logout()">logout</button>
+	<mat-form-field class="bn-sign-up__field">
+		<mat-label>Password</mat-label>
+		<input
+			matInput
+			formControlName="password"
+			type="password"
+			autocomplete="off"
+		/>
+		<mat-error> {{ getError(passwordControl) }} </mat-error>
+	</mat-form-field>
+
+	<mat-form-field class="bn-sign-up__field">
+		<mat-label>Confirm Password</mat-label>
+		<input
+			matInput
+			formControlName="confirmPassword"
+			type="password"
+			autocomplete="off"
+		/>
+		<mat-error>
+			{{ getError(confirmPasswordControl) }}
+		</mat-error>
+	</mat-form-field>
+
+	<button
+		mat-raised-button
+		color="primary"
+		type="submit"
+		[disabled]="form.invalid"
+		class="bn-sign-up__button"
+	>
+		Sign Up
+	</button>
+</form>
