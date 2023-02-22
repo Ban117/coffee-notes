@@ -3,8 +3,13 @@ import {
 	Component,
 	ViewEncapsulation,
 } from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { AuthActions } from "@bn/web/auth/data-access";
+import { getErrorMessage } from "@bn/web/shared/utils";
+import { Store } from "@ngxs/store";
+import { catchError, EMPTY } from "rxjs";
 
-// todo host
 @Component({
 	selector: "bn-login",
 	host: { class: "bn-login" },
@@ -14,15 +19,47 @@ import {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
-	// login() {
-	// 	this.store
-	// 		.dispatch(new AuthActions.Login("testy@gmail.com", "12345678"))
-	// 		.pipe(
-	// 			catchError(err => {
-	// 				this.openSnackbar(err);
-	// 				return EMPTY;
-	// 			}),
-	// 		)
-	// 		.subscribe();
-	// }
+	readonly getError = getErrorMessage;
+
+	readonly form = new FormGroup({
+		email: new FormControl("", [Validators.required, Validators.email]),
+		password: new FormControl("", [
+			Validators.required,
+			Validators.minLength(8),
+		]),
+	});
+
+	get emailControl(): FormControl {
+		return this.form.get("email") as FormControl;
+	}
+
+	get passwordControl(): FormControl {
+		return this.form.get("password") as FormControl;
+	}
+
+	constructor(private store: Store, private snackBar: MatSnackBar) {}
+
+	login() {
+		this.store
+			.dispatch(
+				new AuthActions.Login(
+					this.emailControl.value,
+					this.passwordControl.value,
+				),
+			)
+			.pipe(
+				catchError(err => {
+					this.openSnackbar(err);
+					return EMPTY;
+				}),
+			)
+			.subscribe();
+	}
+
+	private openSnackbar(message: string) {
+		this.snackBar.open(message, "Dismiss", {
+			horizontalPosition: "end",
+			verticalPosition: "top",
+		});
+	}
 }

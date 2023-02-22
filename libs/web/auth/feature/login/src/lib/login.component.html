@@ -1,1 +1,37 @@
-<p>login works!</p>
+<form
+	[formGroup]="form"
+	(ngSubmit)="login()"
+	class="bn-login__form-container"
+>
+	<mat-form-field class="bn-login__field">
+		<mat-label>Email</mat-label>
+		<input
+			matInput
+			[formControl]="emailControl"
+			type="email"
+			autocomplete="off"
+		/>
+		<mat-error> {{ getError(emailControl) }} </mat-error>
+	</mat-form-field>
+
+	<mat-form-field class="bn-login__field">
+		<mat-label>Password</mat-label>
+		<input
+			matInput
+			[formControl]="passwordControl"
+			type="password"
+			autocomplete="off"
+		/>
+		<mat-error> {{ getError(passwordControl) }} </mat-error>
+	</mat-form-field>
+
+	<button
+		mat-raised-button
+		color="primary"
+		type="submit"
+		[disabled]="form.invalid"
+		class="bn-login__button"
+	>
+		Login
+	</button>
+</form>
