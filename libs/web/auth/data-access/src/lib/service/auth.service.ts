@@ -33,6 +33,10 @@ export class AuthService {
 		).pipe(catchError(this.throwErrorMessage$));
 	}
 
+	logout$(): Promise<void> {
+		return this.angularFireAuth.signOut();
+	}
+
 	private throwErrorMessage$(
 		errorRes: firebase.FirebaseError,
 	): Observable<never> {

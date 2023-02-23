@@ -66,6 +66,8 @@ export class AuthState implements NgxsOnInit {
 
 	@Action(AuthActions.Logout)
 	logout(ctx: StateContext<AuthStateModel>) {
-		ctx.patchState({ user: null });
+		return this.authService.logout$().then(() => {
+			ctx.patchState({ user: null });
+		});
 	}
 }
