@@ -69,10 +69,6 @@ export class SignUpComponent {
 			.subscribe();
 	}
 
-	logout() {
-		this.store.dispatch(new AuthActions.Logout());
-	}
-
 	private openSnackbar(message: string) {
 		this.snackBar.open(message, "Dismiss", {
 			horizontalPosition: "end",
