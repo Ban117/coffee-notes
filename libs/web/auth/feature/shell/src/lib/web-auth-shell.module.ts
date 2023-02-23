@@ -2,8 +2,9 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthContainerComponent } from "@bn/web/auth/feature/container";
+import { NgxsModule } from "@ngxs/store";
+import { AuthState } from "@bn/web/auth/data-access";
 
-// todo add routes, ngxs.forFeature stuff
 export const authShellRoutes: Routes = [
 	{
 		path: "",
@@ -37,6 +38,11 @@ export const authShellRoutes: Routes = [
 ];
 
 @NgModule({
-	imports: [CommonModule, RouterModule.forChild(authShellRoutes)],
+	imports: [
+		CommonModule,
+		RouterModule.forChild(authShellRoutes),
+		NgxsModule.forFeature([AuthState]),
+	],
+	exports: [NgxsModule],
 })
 export class WebAuthFeatureShellModule {}
