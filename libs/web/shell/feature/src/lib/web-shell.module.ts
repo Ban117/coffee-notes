@@ -14,10 +14,11 @@ import { map, switchMap } from "rxjs";
 
 export const authGuard: CanMatchFn = () => {
 	const store = inject(Store);
+	const router = inject(Router);
 
 	return store.dispatch(new AuthActions.LoadUser()).pipe(
 		switchMap(() => store.select(AuthState.user)),
-		map(user => !!user || inject(Router).createUrlTree(["/auth"])),
+		map(user => !!user || router.createUrlTree(["/auth"])),
 	);
 };
 

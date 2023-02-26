@@ -21,9 +21,13 @@ import { catchError, EMPTY } from "rxjs";
 export class LoginComponent {
 	readonly getError = getErrorMessage;
 
+	// todo rm, debugging only
 	readonly form = new FormGroup({
-		email: new FormControl("", [Validators.required, Validators.email]),
-		password: new FormControl("", [
+		email: new FormControl("bcan@gmail.com", [
+			Validators.required,
+			Validators.email,
+		]),
+		password: new FormControl("12345678", [
 			Validators.required,
 			Validators.minLength(8),
 		]),
