@@ -16,7 +16,7 @@
 				"tsConfig": "apps/coffee-notes/tsconfig.app.json",
 				"inlineStyleLanguage": "scss",
 				"assets": [
-					"apps/coffee-notes/src/favicon.ico",
+					"apps/coffee-notes/src/favicon.png",
 					"apps/coffee-notes/src/assets"
 				],
 				"styles": ["apps/coffee-notes/src/styles.scss"],
