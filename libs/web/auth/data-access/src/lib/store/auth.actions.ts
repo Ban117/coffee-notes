@@ -18,7 +18,7 @@ export namespace AuthActions {
 		static readonly type = `${ACTION_PREFIX} Logout`;
 	}
 
-	export class Init {
-		static readonly type = `${ACTION_PREFIX} Init`;
+	export class LoadUser {
+		static readonly type = `${ACTION_PREFIX} Load User`;
 	}
 }

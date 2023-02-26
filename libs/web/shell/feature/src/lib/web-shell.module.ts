@@ -1,14 +1,25 @@
-import { NgModule } from "@angular/core";
+import { inject, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { Routes, RouterModule } from "@angular/router";
+import { Routes, RouterModule, Router, CanMatchFn } from "@angular/router";
 import { LayoutComponent } from "@bn/web/shell/ui/layout";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularFireModule } from "@angular/fire/compat";
 import { environment } from "@bn/shared/environments";
-import { NgxsModule } from "@ngxs/store";
+import { NgxsModule, Store } from "@ngxs/store";
 import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
 
 import { NgxsLoggerPluginModule } from "@ngxs/logger-plugin";
+import { AuthActions, AuthState } from "@bn/web/auth/data-access";
+import { map, switchMap } from "rxjs";
+
+export const authGuard: CanMatchFn = () => {
+	const store = inject(Store);
+
+	return store.dispatch(new AuthActions.LoadUser()).pipe(
+		switchMap(() => store.select(AuthState.user)),
+		map(user => !!user || inject(Router).createUrlTree(["/auth"])),
+	);
+};
 
 export const webShellRoutes: Routes = [
 	{
@@ -16,10 +27,22 @@ export const webShellRoutes: Routes = [
 		component: LayoutComponent,
 		children: [
 			{
+				path: "",
+				redirectTo: "home",
+				pathMatch: "full",
+			},
+			{
 				path: "auth",
 				loadChildren: async () =>
 					(await import("@bn/web/auth/feature/shell"))
 						.WebAuthFeatureShellModule,
+			},
+			{
+				path: "home",
+				loadChildren: async () =>
+					(await import("@bn/web/home/feature")).WebHomeModule,
+				// class route guards deprecated https://angular.io/guide/deprecations#router-class-and-injection-token-guards
+				canMatch: [authGuard],
 			},
 		],
 	},
@@ -31,7 +54,12 @@ export const webShellRoutes: Routes = [
 		RouterModule.forRoot(webShellRoutes),
 		BrowserAnimationsModule,
 		AngularFireModule.initializeApp(environment.firebaseConfig),
-		NgxsModule.forRoot(),
+		NgxsModule.forRoot([AuthState], {
+			selectorOptions: {
+				injectContainerState: false,
+				suppressErrors: false,
+			},
+		}),
 		NgxsReduxDevtoolsPluginModule.forRoot(),
 		NgxsLoggerPluginModule.forRoot({}),
 	],
