@@ -34,6 +34,9 @@
 				"libs/web/auth/feature/sign-up/src/index.ts"
 			],
 			"@bn/web/home/feature": ["libs/web/home/feature/src/index.ts"],
+			"@bn/web/note/data-access": [
+				"libs/web/note/data-access/src/index.ts"
+			],
 			"@bn/web/shared/ui/animation": [
 				"libs/web/shared/ui/animation/src/index.ts"
 			],
