@@ -37,6 +37,12 @@
 			"@bn/web/note/data-access": [
 				"libs/web/note/data-access/src/index.ts"
 			],
+			"@bn/web/note/feature/detail": [
+				"libs/web/note/feature/detail/src/index.ts"
+			],
+			"@bn/web/note/feature/shell": [
+				"libs/web/note/feature/shell/src/index.ts"
+			],
 			"@bn/web/shared/ui/animation": [
 				"libs/web/shared/ui/animation/src/index.ts"
 			],
