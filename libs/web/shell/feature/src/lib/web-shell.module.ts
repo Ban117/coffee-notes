@@ -39,11 +39,23 @@ export const webShellRoutes: Routes = [
 						.WebAuthFeatureShellModule,
 			},
 			{
-				path: "home",
-				loadChildren: async () =>
-					(await import("@bn/web/home/feature")).WebHomeModule,
-				// class route guards deprecated https://angular.io/guide/deprecations#router-class-and-injection-token-guards
+				path: "",
 				canMatch: [authGuard],
+				// class route guards deprecated https://angular.io/guide/deprecations#router-class-and-injection-token-guards
+				children: [
+					{
+						path: "home",
+						loadChildren: async () =>
+							(await import("@bn/web/home/feature"))
+								.WebHomeModule,
+					},
+					{
+						path: "note",
+						loadChildren: async () =>
+							(await import("@bn/web/note/feature/shell"))
+								.WebNoteShellModule,
+					},
+				],
 			},
 		],
 	},
