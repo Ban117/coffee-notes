@@ -1,1 +1,69 @@
-<p>note detail</p>
+<mat-stepper
+	labelPosition="bottom"
+	linear
+>
+	<mat-step
+		[stepControl]="beanDetailForm"
+		errorMessage="Something's not right"
+	>
+		<ng-template matStepLabel>Brewing Details</ng-template>
+
+		<form [formGroup]="beanDetailForm">
+			<!-- <mat-form-field>
+				<input
+					#name
+					matInput
+					formControlName="name"
+					placeholder="Coffee Beans Name"
+				/>
+
+				<mat-hint align="end"> {{ name.value.length }} / 60 </mat-hint>
+			</mat-form-field> -->
+
+			<!-- <mat-form-field>
+				<input
+					#roaster
+					matInput
+					formControlName="roaster"
+					placeholder="Roaster"
+				/>
+
+				<mat-hint align="end">
+					{{ roaster.value.length }} / 60
+				</mat-hint>
+			</mat-form-field> -->
+
+			<mat-form-field>
+				<input
+					matInput
+					[matDatepicker]="picker"
+					formControlName="roastDate"
+				/>
+				<mat-hint>DD/MM/YYYY</mat-hint>
+				<mat-datepicker-toggle
+					matIconSuffix
+					[for]="picker"
+				></mat-datepicker-toggle>
+				<mat-datepicker #picker></mat-datepicker>
+			</mat-form-field>
+		</form>
+
+		<div class="app-create-note__button-container">
+			<button
+				mat-raised-button
+				color="primary"
+				matStepperNext
+			>
+				Add Tasting Notes
+			</button>
+
+			<button
+				mat-raised-button
+				color="primary"
+				(click)="logForm()"
+			>
+				Log Form
+			</button>
+		</div>
+	</mat-step>
+</mat-stepper>

@@ -52,7 +52,11 @@
 			"unitTestRunner": "jest"
 		},
 		"@nrwl/angular:component": {
-			"style": "scss"
+			"style": "scss",
+			"displayBlock": true,
+			"changeDetection": "OnPush",
+			"viewEncapsulation": "None",
+			"skipTests": true
 		},
 		"@nrwl/angular:scam": {
 			"style": "scss",

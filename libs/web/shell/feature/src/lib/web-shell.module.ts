@@ -1,4 +1,4 @@
-import { inject, NgModule } from "@angular/core";
+import { inject, LOCALE_ID, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Routes, RouterModule, Router, CanMatchFn } from "@angular/router";
 import { LayoutComponent } from "@bn/web/shell/ui/layout";
@@ -77,5 +77,6 @@ export const webShellRoutes: Routes = [
 		NgxsLoggerPluginModule.forRoot({}),
 	],
 	exports: [RouterModule],
+	providers: [{ provide: LOCALE_ID, useValue: "en-GB" }],
 })
 export class WebShellModule {}

@@ -5,38 +5,39 @@ export type BeanProcess = "natural" | "washed" | "honey";
 export interface BeanDetail {
 	id: string; // auto-add from firestore
 	name: string;
-	roaster: string;
-	roastDate: string;
-	originCountry: string;
-	originRegion: string;
-	altitude: number;
-	process: BeanProcess;
-	roastLevel: RoastLevel;
+	roaster: string | undefined;
+	roastDate: string | undefined;
+	originCountry: string | undefined;
+	originRegion: string | undefined;
+	altitude: number | undefined;
+	process: BeanProcess | undefined;
+	roastLevel: RoastLevel | undefined;
 }
 
 export type BrewMethod = "pourOver" | "espresso";
 
 export interface BrewNote {
-	brewMethod: BrewMethod;
-	beanDose: number;
-	waterAmount: number;
-	grindSize: number;
-	brewDuration: number;
-	extraNotes: string;
+	brewMethod: BrewMethod | undefined;
+	beanDose: number | undefined;
+	waterAmount: number | undefined;
+	grindSize: number | undefined;
+	brewDuration: number | undefined;
+	extraNotes: string | undefined;
 }
 
 export interface TastingNote {
-	aromas: string[]; // maybe these could be like tags/chips?
-	flavors: string[]; // maybe these could be like tags?
-	body: number; // like 1 - 10, light - heavy
-	intensity: number; // like 1 - 10, low - high
-	acidity: number; // like 1 - 10, low - high
-	bitterness: number; // like 1 - 10, low - high
-	sweetness: number; // like 1 - 10, low - high
-	extraNotes: string;
+	aromas: string[] | undefined; // maybe these could be like tags/chips?
+	flavors: string[] | undefined; // maybe these could be like tags?
+	body: number | undefined; // like 1 - 10, light - heavy
+	intensity: number | undefined; // like 1 - 10, low - high
+	acidity: number | undefined; // like 1 - 10, low - high
+	bitterness: number | undefined; // like 1 - 10, low - high
+	sweetness: number | undefined; // like 1 - 10, low - high
+	extraNotes: string | undefined;
 }
 
 export interface Note {
+	id: string;
 	beanDetail: BeanDetail;
 	brewNote: BrewNote;
 	tastingNote: TastingNote;

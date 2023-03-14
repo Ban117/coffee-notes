@@ -1,0 +1,34 @@
+{
+	"name": "web-dayjs-adapter",
+	"$schema": "../node_modules/nx/schemas/project-schema.json",
+	"projectType": "library",
+	"sourceRoot": "libs/web/dayjs-adapter/src",
+	"prefix": "bn",
+	"targets": {
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "libs/web/dayjs-adapter/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": [
+					"libs/web/dayjs-adapter/**/*.ts",
+					"libs/web/dayjs-adapter/**/*.html"
+				]
+			}
+		}
+	},
+	"tags": []
+}

@@ -106,6 +106,7 @@ $coffee-notes-theme: mat.define-dark-theme(
 @include mat.stepper-theme($coffee-notes-theme);
 @include mat.radio-theme($coffee-notes-theme);
 @include mat.slider-theme($coffee-notes-theme);
+@include mat.datepicker-theme($coffee-notes-theme);
 
 html,
 body {
