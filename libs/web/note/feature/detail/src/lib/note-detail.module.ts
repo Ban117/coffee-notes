@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import {
 	DateAdapter,
 	MAT_DATE_FORMATS,
@@ -15,6 +16,7 @@ import {
 } from "@angular/material/core";
 import { RouterModule, Routes } from "@angular/router";
 import { DayjsAdapter, MAT_DAYJS_DATE_FORMATS } from "@bn/web/dayjs-adapter";
+import { CountryAutocompleteModule } from "@bn/web/shared/ui/country-autocomplete";
 
 export const noteDetailRoutes: Routes = [
 	{
@@ -34,6 +36,8 @@ export const noteDetailRoutes: Routes = [
 		MatDatepickerModule,
 		MatFormFieldModule,
 		MatInputModule,
+		MatAutocompleteModule,
+		CountryAutocompleteModule,
 	],
 	declarations: [NoteDetailComponent],
 	exports: [NoteDetailComponent],
@@ -46,4 +50,4 @@ export const noteDetailRoutes: Routes = [
 		{ provide: MAT_DATE_FORMATS, useValue: MAT_DAYJS_DATE_FORMATS },
 	],
 })
-export class WebNoteDetailModule {}
+export class NoteDetailModule {}

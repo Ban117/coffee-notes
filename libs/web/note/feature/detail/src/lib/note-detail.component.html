@@ -8,8 +8,11 @@
 	>
 		<ng-template matStepLabel>Brewing Details</ng-template>
 
-		<form [formGroup]="beanDetailForm">
-			<!-- <mat-form-field>
+		<form
+			[formGroup]="beanDetailForm"
+			class="bn-note-detail__form"
+		>
+			<mat-form-field>
 				<input
 					#name
 					matInput
@@ -18,9 +21,9 @@
 				/>
 
 				<mat-hint align="end"> {{ name.value.length }} / 60 </mat-hint>
-			</mat-form-field> -->
+			</mat-form-field>
 
-			<!-- <mat-form-field>
+			<mat-form-field>
 				<input
 					#roaster
 					matInput
@@ -31,7 +34,7 @@
 				<mat-hint align="end">
 					{{ roaster.value.length }} / 60
 				</mat-hint>
-			</mat-form-field> -->
+			</mat-form-field>
 
 			<mat-form-field>
 				<input
@@ -39,13 +42,42 @@
 					[matDatepicker]="picker"
 					formControlName="roastDate"
 				/>
-				<mat-hint>DD/MM/YYYY</mat-hint>
+				<mat-hint>Roast Date: DD/MM/YYYY</mat-hint>
 				<mat-datepicker-toggle
 					matIconSuffix
 					[for]="picker"
 				></mat-datepicker-toggle>
 				<mat-datepicker #picker></mat-datepicker>
 			</mat-form-field>
+
+			<!-- <mat-form-field
+				class="example-full-width"
+				appearance="fill"
+			>
+				<mat-label>State</mat-label>
+				<input
+					matInput
+					aria-label="State"
+					[matAutocomplete]="auto"
+					formControlName="originCountry"
+				/>
+				<mat-autocomplete #auto="matAutocomplete">
+					<mat-option
+						*ngFor="let state of filteredStates | async"
+						[value]="state.name"
+					>
+						<img
+							alt=""
+							class="example-option-img"
+							[src]="state.flag"
+							height="25"
+						/>
+						<span>{{ state.name }}</span> |
+						<small>Population: {{ state.population }}</small>
+					</mat-option>
+				</mat-autocomplete>
+			</mat-form-field> -->
+			<bn-country-autocomplete></bn-country-autocomplete>
 		</form>
 
 		<div class="app-create-note__button-container">
@@ -63,6 +95,14 @@
 				(click)="logForm()"
 			>
 				Log Form
+			</button>
+
+			<button
+				mat-raised-button
+				color="primary"
+				(click)="add()"
+			>
+				Add
 			</button>
 		</div>
 	</mat-step>

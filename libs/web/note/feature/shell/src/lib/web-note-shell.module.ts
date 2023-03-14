@@ -6,7 +6,7 @@ export const noteShellRoutes: Routes = [
 	{
 		path: "",
 		loadChildren: async () =>
-			(await import("@bn/web/note/feature/detail")).WebNoteDetailModule,
+			(await import("@bn/web/note/feature/detail")).NoteDetailModule,
 	},
 ];
 

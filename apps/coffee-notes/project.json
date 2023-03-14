@@ -17,7 +17,12 @@
 				"inlineStyleLanguage": "scss",
 				"assets": [
 					"apps/coffee-notes/src/favicon.png",
-					"apps/coffee-notes/src/assets"
+					"apps/coffee-notes/src/assets",
+					{
+						"input": "libs/web/shared/ui/country-autocomplete/assets",
+						"glob": "**/*",
+						"output": "assets/country-autocomplete"
+					}
 				],
 				"styles": ["apps/coffee-notes/src/styles.scss"],
 				"scripts": []
