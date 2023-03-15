@@ -1,3 +1,12 @@
 .bn-country-autocomplete {
 	display: block;
+
+	&__form-field {
+		width: 250px;
+	}
+
+	&__img {
+		vertical-align: middle;
+		margin-right: 8px;
+	}
 }

@@ -1,2 +1,33 @@
-<p>country-autocomplete works!</p>
-<img [src]="path + '/ac.svg'" />
+<mat-form-field class="bn-country-autocomplete__form-field">
+	<mat-label>{{ label }}</mat-label>
+	<input
+		matInput
+		aria-label="Country"
+		[matAutocomplete]="auto"
+		[formControl]="control"
+	/>
+	<button
+		*ngIf="control.value"
+		matSuffix
+		mat-icon-button
+		aria-label="Clear"
+		type="button"
+		(click)="control.patchValue(''); $event.stopPropagation()"
+	>
+		<mat-icon>close</mat-icon>
+	</button>
+	<mat-autocomplete #auto="matAutocomplete">
+		<mat-option
+			*ngFor="let country of filteredcountries | async"
+			[value]="country.name"
+		>
+			<img
+				class="bn-country-autocomplete__img"
+				alt="country image"
+				[src]="getSrcPath(country.flag)"
+				height="25"
+			/>
+			<span>{{ country.name }}</span>
+		</mat-option>
+	</mat-autocomplete>
+</mat-form-field>

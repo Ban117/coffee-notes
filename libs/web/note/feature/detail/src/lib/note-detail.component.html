@@ -50,34 +50,10 @@
 				<mat-datepicker #picker></mat-datepicker>
 			</mat-form-field>
 
-			<!-- <mat-form-field
-				class="example-full-width"
-				appearance="fill"
-			>
-				<mat-label>State</mat-label>
-				<input
-					matInput
-					aria-label="State"
-					[matAutocomplete]="auto"
-					formControlName="originCountry"
-				/>
-				<mat-autocomplete #auto="matAutocomplete">
-					<mat-option
-						*ngFor="let state of filteredStates | async"
-						[value]="state.name"
-					>
-						<img
-							alt=""
-							class="example-option-img"
-							[src]="state.flag"
-							height="25"
-						/>
-						<span>{{ state.name }}</span> |
-						<small>Population: {{ state.population }}</small>
-					</mat-option>
-				</mat-autocomplete>
-			</mat-form-field> -->
-			<bn-country-autocomplete></bn-country-autocomplete>
+			<bn-country-autocomplete
+				label="Country of Origin"
+				[control]="originCountry"
+			></bn-country-autocomplete>
 		</form>
 
 		<div class="app-create-note__button-container">

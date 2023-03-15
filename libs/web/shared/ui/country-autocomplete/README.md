@@ -1,7 +1,3 @@
-# web-shared-ui-country-autocomplete
+# Included Countries
 
-This library was generated with [Nx](https://nx.dev).
-
-## Running unit tests
-
-Run `nx test web-shared-ui-country-autocomplete` to execute the unit tests.
+Only coffee producing countries have been included to save on loading more SVGs. The user can still manually enter a country name
