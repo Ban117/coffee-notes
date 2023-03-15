@@ -17,17 +17,22 @@
 		<mat-icon>close</mat-icon>
 	</button>
 	<mat-autocomplete #auto="matAutocomplete">
-		<mat-option
-			*ngFor="let country of filteredcountries | async"
-			[value]="country.name"
+		<mat-optgroup
+			*ngFor="let countryGroup of filteredcountries | async"
+			[label]="countryGroup.name"
 		>
-			<img
-				class="bn-country-autocomplete__img"
-				alt="country image"
-				[src]="getSrcPath(country.flag)"
-				height="25"
-			/>
-			<span>{{ country.name }}</span>
-		</mat-option>
+			<mat-option
+				*ngFor="let country of countryGroup.countries"
+				[value]="country.name"
+			>
+				<img
+					class="bn-country-autocomplete__img"
+					alt="country image"
+					[src]="getSrcPath(country.flag)"
+					height="25"
+				/>
+				<span>{{ country.name }}</span>
+			</mat-option>
+		</mat-optgroup>
 	</mat-autocomplete>
 </mat-form-field>

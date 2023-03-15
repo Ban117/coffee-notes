@@ -7,14 +7,20 @@ import {
 } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { map, Observable, startWith } from "rxjs";
-import { COFFEE_COUNTRIES } from "./country-autocomplete.const";
+import {
+	COFFEE_COUNTRIES_CONTINENTS,
+	ASSET_PATH,
+} from "./country-autocomplete.const";
 
 export interface Country {
 	name: string;
 	flag: string;
 }
 
-const ASSET_PATH = "/assets/country-autocomplete/";
+export interface Continent {
+	name: string;
+	countries: Country[];
+}
 
 @Component({
 	selector: "bn-country-autocomplete",
@@ -29,16 +35,16 @@ export class CountryAutocompleteComponent implements OnInit {
 
 	@Input() control!: FormControl;
 
-	filteredcountries!: Observable<Country[]>;
+	filteredcountries!: Observable<Continent[]>;
 
-	private readonly countries: Country[] = COFFEE_COUNTRIES;
+	countries: Continent[] = COFFEE_COUNTRIES_CONTINENTS;
+
+	readonly assetPath: string = ASSET_PATH;
 
 	ngOnInit() {
 		this.filteredcountries = this.control.valueChanges.pipe(
 			startWith(""),
-			map(state =>
-				state ? this._filterStates(state) : this.countries.slice(),
-			),
+			map(value => this._filterGroup(value || "")),
 		);
 	}
 
@@ -46,11 +52,24 @@ export class CountryAutocompleteComponent implements OnInit {
 		return `${ASSET_PATH}${countryFlagCode}.svg`;
 	}
 
-	private _filterStates(value: string): Country[] {
+	private _filterGroup(value: string): Continent[] {
+		if (value) {
+			return this.countries
+				.map(group => ({
+					name: group.name,
+					countries: this._filter(group.countries, value),
+				}))
+				.filter(group => group.countries.length > 0);
+		}
+
+		return this.countries;
+	}
+
+	private _filter(opt: Country[], value: string): Country[] {
 		const filterValue = value.toLowerCase();
 
-		return this.countries.filter(state =>
-			state.name.toLowerCase().includes(filterValue),
+		return opt.filter(item =>
+			item.name.toLowerCase().includes(filterValue),
 		);
 	}
 }
