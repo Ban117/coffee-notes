@@ -44,8 +44,8 @@
 			"@bn/web/note/feature/shell": [
 				"libs/web/note/feature/shell/src/index.ts"
 			],
-			"@bn/web/shared/directives/darken": [
-				"libs/web/shared/directives/darken/src/index.ts"
+			"@bn/web/shared/directives/gradient": [
+				"libs/web/shared/directives/gradient/src/index.ts"
 			],
 			"@bn/web/shared/ui/animation": [
 				"libs/web/shared/ui/animation/src/index.ts"

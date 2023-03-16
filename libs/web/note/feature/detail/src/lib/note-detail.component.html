@@ -68,6 +68,7 @@
 				</mat-hint>
 			</mat-form-field>
 
+			<p>Altitude</p>
 			<mat-slider
 				discrete
 				min="0"
@@ -81,6 +82,7 @@
 				/>
 			</mat-slider>
 
+			<p>Bean Process</p>
 			<mat-chip-listbox formControlName="process">
 				<mat-chip-option *ngFor="let process of beanProcess">
 					<mat-icon matChipTrailingIcon>
@@ -90,12 +92,13 @@
 				</mat-chip-option>
 			</mat-chip-listbox>
 
+			<p>Roast Level</p>
 			<mat-chip-listbox formControlName="roastLevel">
 				<mat-chip-option
 					*ngFor="let level of roastLevel; let i = index"
 					highlighted
-					[bnDarken]="i"
-					[bnDarkenFactor]="30"
+					[bnGradient]="i"
+					[bnGradientFactor]="30"
 				>
 					{{ level }}
 				</mat-chip-option>

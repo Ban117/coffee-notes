@@ -20,7 +20,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { DayjsAdapter, MAT_DAYJS_DATE_FORMATS } from "@bn/web/dayjs-adapter";
 import { CountryAutocompleteModule } from "@bn/web/shared/ui/country-autocomplete";
 import { MatIconModule } from "@angular/material/icon";
-import { DarkenModule } from "@bn/web/shared/directives/darken";
+import { GradientModule } from "@bn/web/shared/directives/gradient";
 
 export const noteDetailRoutes: Routes = [
 	{
@@ -46,7 +46,7 @@ export const noteDetailRoutes: Routes = [
 		MatIconModule,
 
 		CountryAutocompleteModule,
-		DarkenModule,
+		GradientModule,
 	],
 	declarations: [NoteDetailComponent],
 	exports: [NoteDetailComponent],

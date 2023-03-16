@@ -1,15 +1,15 @@
 {
-	"name": "web-shared-directives-darken",
+	"name": "web-shared-directives-gradient",
 	"$schema": "../node_modules/nx/schemas/project-schema.json",
 	"projectType": "library",
-	"sourceRoot": "libs/web/shared/directives/darken/src",
+	"sourceRoot": "libs/web/shared/directives/gradient/src",
 	"prefix": "bn",
 	"targets": {
 		"test": {
 			"executor": "@nrwl/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
 			"options": {
-				"jestConfig": "libs/web/shared/directives/darken/jest.config.ts",
+				"jestConfig": "libs/web/shared/directives/gradient/jest.config.ts",
 				"passWithNoTests": true
 			},
 			"configurations": {
@@ -24,8 +24,8 @@
 			"outputs": ["{options.outputFile}"],
 			"options": {
 				"lintFilePatterns": [
-					"libs/web/shared/directives/darken/**/*.ts",
-					"libs/web/shared/directives/darken/**/*.html"
+					"libs/web/shared/directives/gradient/**/*.ts",
+					"libs/web/shared/directives/gradient/**/*.html"
 				]
 			}
 		}

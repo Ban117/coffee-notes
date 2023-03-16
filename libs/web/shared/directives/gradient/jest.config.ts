@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-	displayName: "web-shared-directives-darken",
+	displayName: "web-shared-directives-gradient",
 	preset: "../../../../../jest.preset.js",
 	setupFilesAfterEnv: ["<rootDir>/src/test-setup.ts"],
 	globals: {
@@ -10,7 +10,7 @@ export default {
 		},
 	},
 	coverageDirectory:
-		"../../../../../coverage/libs/web/shared/directives/darken",
+		"../../../../../coverage/libs/web/shared/directives/gradient",
 	transform: {
 		"^.+\\.(ts|mjs|js|html)$": "jest-preset-angular",
 	},

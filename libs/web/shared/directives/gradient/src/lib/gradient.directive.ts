@@ -13,12 +13,14 @@ import {
 import { take, tap } from "rxjs";
 
 @Directive({
-	selector: "[bnDarken]",
+	selector: "[bnGradient]",
 })
-export class DarkenDirective implements AfterViewInit {
-	@Input("bnDarken") darkenLevel!: number;
+export class GradientDirective implements AfterViewInit {
+	@Input("bnGradient") gradientLevel!: number;
 
-	@Input() bnDarkenFactor = 50;
+	@Input() bnGradientFactor = 50;
+
+	@Input() bnGradientMode: "lighten" | "darken" = "darken";
 
 	isBrowser: boolean;
 
@@ -46,9 +48,9 @@ export class DarkenDirective implements AfterViewInit {
 						this.el.nativeElement,
 					).backgroundColor;
 
-					const newBgColor = this.darkenColor(
+					const newBgColor = this.gradateColor(
 						currentBgColor,
-						this.darkenLevel,
+						this.gradientLevel,
 					);
 
 					this.renderer.setStyle(
@@ -61,19 +63,30 @@ export class DarkenDirective implements AfterViewInit {
 			.subscribe();
 	}
 
-	private darkenColor(color: string, level: number): string {
-		const darkenValue = level * this.bnDarkenFactor;
+	private gradateColor(color: string, level: number): string {
+		const gradatedValue = level * this.bnGradientFactor;
 		const rgb = color
 			.replace(/^(rgb|rgba)\(/, "")
 			.replace(/\)$/, "")
 			.split(",")
 			.map(parseFloat);
 
+		if (this.bnGradientMode === "darken") {
+			const newRgb = {
+				r: Math.max(0, rgb[0] - gradatedValue),
+				g: Math.max(0, rgb[1] - gradatedValue),
+				b: Math.max(0, rgb[2] - gradatedValue),
+			};
+
+			return `rgb(${newRgb.r}, ${newRgb.g}, ${newRgb.b})`;
+		}
+
 		const newRgb = {
-			r: Math.max(0, rgb[0] - darkenValue),
-			g: Math.max(0, rgb[1] - darkenValue),
-			b: Math.max(0, rgb[2] - darkenValue),
+			r: Math.max(0, rgb[0] + gradatedValue),
+			g: Math.max(0, rgb[1] + gradatedValue),
+			b: Math.max(0, rgb[2] + gradatedValue),
 		};
+
 		return `rgb(${newRgb.r}, ${newRgb.g}, ${newRgb.b})`;
 	}
 }
