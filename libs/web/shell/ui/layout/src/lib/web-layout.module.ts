@@ -8,7 +8,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
-import { WebTopBarModule } from "@bn/web/shell/ui/top-bar";
+import { TopBarModule } from "@bn/web/shell/ui/top-bar";
 
 @NgModule({
 	imports: [
@@ -20,7 +20,7 @@ import { WebTopBarModule } from "@bn/web/shell/ui/top-bar";
 		MatSidenavModule,
 		MatIconModule,
 		MatListModule,
-		WebTopBarModule,
+		TopBarModule,
 	],
 	declarations: [LayoutComponent],
 	exports: [LayoutComponent],

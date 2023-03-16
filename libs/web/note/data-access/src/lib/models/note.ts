@@ -1,6 +1,12 @@
-// most of these need to be optional otherwise this form will suck to fill out
-export type RoastLevel = "light" | "medium" | "dark";
-export type BeanProcess = "natural" | "washed" | "honey";
+import { ExtractTypeFromReadonlyArray } from "@bn/web/shared/utils";
+
+// TS enum replacement, similar to using a pojo with `as const` but wanted to
+// keep this as an array
+export const ROAST_LEVEL = ["light", "medium", "dark", "espresso"] as const;
+export type RoastLevel = ExtractTypeFromReadonlyArray<typeof ROAST_LEVEL>;
+
+export const BEAN_PROCESS = ["natural", "washed", "honey"] as const;
+export type BeanProcess = ExtractTypeFromReadonlyArray<typeof BEAN_PROCESS>;
 
 export interface BeanDetail {
 	id: string; // auto-add from firestore

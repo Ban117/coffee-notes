@@ -4,7 +4,12 @@ import {
 	ViewEncapsulation,
 } from "@angular/core";
 import { FormBuilder, FormControl } from "@angular/forms";
-import { NoteService } from "@bn/web/note/data-access";
+import {
+	BeanProcess,
+	BEAN_PROCESS,
+	NoteService,
+	ROAST_LEVEL,
+} from "@bn/web/note/data-access";
 import * as _dayjs from "dayjs";
 
 // todo base linear on whether we're in edit or create
@@ -17,13 +22,17 @@ import * as _dayjs from "dayjs";
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NoteDetailComponent {
+	readonly beanProcess = BEAN_PROCESS;
+
+	readonly roastLevel = ROAST_LEVEL;
+
 	readonly beanDetailForm = this.fb.group({
 		name: "",
 		roaster: "",
 		roastDate: "",
 		originCountry: "",
 		originRegion: "",
-		altitude: 0, // slider?
+		altitude: 0,
 		process: "", // autocomplete
 		roastLevel: "", // autocomplete
 	});
@@ -47,5 +56,24 @@ export class NoteDetailComponent {
 			boq: "testing again",
 			datey: something,
 		});
+	}
+
+	/**
+	 * Uses typescript exhaustiveness checking so that if we add a new process and don't
+	 * map to an icon, we'll get a type error and not a runtime error/empty icon
+	 */
+	mapBeanProcessToIcon(process: BeanProcess): string {
+		switch (process) {
+			case "honey":
+				return "hive";
+			case "natural":
+				return "sunny";
+			case "washed":
+				return "wash";
+		}
+	}
+
+	formatAltitudeLabel(value: number): string {
+		return `${value}masl`;
 	}
 }

@@ -9,6 +9,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import { MatSliderModule } from "@angular/material/slider";
+import { MatChipsModule } from "@angular/material/chips";
 import {
 	DateAdapter,
 	MAT_DATE_FORMATS,
@@ -17,6 +19,8 @@ import {
 import { RouterModule, Routes } from "@angular/router";
 import { DayjsAdapter, MAT_DAYJS_DATE_FORMATS } from "@bn/web/dayjs-adapter";
 import { CountryAutocompleteModule } from "@bn/web/shared/ui/country-autocomplete";
+import { MatIconModule } from "@angular/material/icon";
+import { DarkenModule } from "@bn/web/shared/directives/darken";
 
 export const noteDetailRoutes: Routes = [
 	{
@@ -37,7 +41,12 @@ export const noteDetailRoutes: Routes = [
 		MatFormFieldModule,
 		MatInputModule,
 		MatAutocompleteModule,
+		MatSliderModule,
+		MatChipsModule,
+		MatIconModule,
+
 		CountryAutocompleteModule,
+		DarkenModule,
 	],
 	declarations: [NoteDetailComponent],
 	exports: [NoteDetailComponent],

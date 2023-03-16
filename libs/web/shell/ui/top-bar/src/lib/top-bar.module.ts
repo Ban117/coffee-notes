@@ -18,4 +18,4 @@ import { TopBarComponent } from "./top-bar.component";
 	declarations: [TopBarComponent],
 	exports: [TopBarComponent],
 })
-export class WebTopBarModule {}
+export class TopBarModule {}

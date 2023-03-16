@@ -110,6 +110,7 @@ $coffee-notes-theme: mat.define-dark-theme(
 @include mat.autocomplete-theme($coffee-notes-theme);
 @include mat.icon-theme($coffee-notes-theme);
 @include mat.icon-button-theme($coffee-notes-theme);
+@include mat.chips-theme($coffee-notes-theme);
 
 html,
 body {

@@ -54,7 +54,55 @@
 				label="Country of Origin"
 				[control]="originCountry"
 			></bn-country-autocomplete>
+
+			<mat-form-field>
+				<input
+					#originRegion
+					matInput
+					formControlName="originRegion"
+					placeholder="Region"
+				/>
+
+				<mat-hint align="end">
+					{{ originRegion.value.length }} / 60
+				</mat-hint>
+			</mat-form-field>
+
+			<mat-slider
+				discrete
+				min="0"
+				max="8000"
+				step="100"
+				[displayWith]="formatAltitudeLabel"
+			>
+				<input
+					matSliderThumb
+					formControlName="altitude"
+				/>
+			</mat-slider>
+
+			<mat-chip-listbox formControlName="process">
+				<mat-chip-option *ngFor="let process of beanProcess">
+					<mat-icon matChipTrailingIcon>
+						{{ mapBeanProcessToIcon(process) }}
+					</mat-icon>
+					{{ process }}
+				</mat-chip-option>
+			</mat-chip-listbox>
+
+			<mat-chip-listbox formControlName="roastLevel">
+				<mat-chip-option
+					*ngFor="let level of roastLevel; let i = index"
+					highlighted
+					[bnDarken]="i"
+					[bnDarkenFactor]="30"
+				>
+					{{ level }}
+				</mat-chip-option>
+			</mat-chip-listbox>
 		</form>
+
+		<div>{{ beanDetailForm.value | json }}</div>
 
 		<div class="app-create-note__button-container">
 			<button

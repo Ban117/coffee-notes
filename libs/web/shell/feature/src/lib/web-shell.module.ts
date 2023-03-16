@@ -77,6 +77,9 @@ export const webShellRoutes: Routes = [
 		NgxsLoggerPluginModule.forRoot({}),
 	],
 	exports: [RouterModule],
-	providers: [{ provide: LOCALE_ID, useValue: "en-GB" }],
+	providers: [
+		{ provide: LOCALE_ID, useValue: "en-GB" },
+		{ provide: Window, useValue: window },
+	],
 })
 export class WebShellModule {}
