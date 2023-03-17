@@ -11,6 +11,7 @@ import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
 import { NgxsLoggerPluginModule } from "@ngxs/logger-plugin";
 import { AuthActions, AuthState } from "@bn/web/auth/data-access";
 import { map, switchMap } from "rxjs";
+import { HttpClientModule } from "@angular/common/http";
 
 export const authGuard: CanMatchFn = () => {
 	const store = inject(Store);
@@ -73,6 +74,7 @@ export const webShellRoutes: Routes = [
 				suppressErrors: false,
 			},
 		}),
+		HttpClientModule,
 		NgxsReduxDevtoolsPluginModule.forRoot(),
 		NgxsLoggerPluginModule.forRoot({}),
 	],

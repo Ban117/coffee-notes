@@ -1,3 +1,4 @@
+// todo extract common styles to mixin
 .bn-bean-deatil-form {
 	display: block;
 
@@ -8,5 +9,9 @@
 
 	&__field {
 		margin-bottom: 20px;
+	}
+
+	.mdc-evolution-chip__text-label {
+		text-transform: capitalize;
 	}
 }

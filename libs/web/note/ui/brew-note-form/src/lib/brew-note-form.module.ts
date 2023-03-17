@@ -7,6 +7,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatIconModule } from "@angular/material/icon";
 
+import { TranslatePipeModule } from "@bn/web/shared/pipes/translate";
+
 import { BrewNoteFormComponent } from "./brew-note-form.component";
 
 @NgModule({
@@ -18,6 +20,8 @@ import { BrewNoteFormComponent } from "./brew-note-form.component";
 		MatInputModule,
 		MatChipsModule,
 		MatIconModule,
+
+		TranslatePipeModule,
 	],
 	declarations: [BrewNoteFormComponent],
 	exports: [BrewNoteFormComponent],

@@ -1,18 +1,20 @@
 <div
 	[formGroup]="brewNoteForm"
-	class="bn-bean-deatil-form__form"
+	class="bn-brew-note-form__form"
 >
 	<p>Brew Method</p>
 	<mat-chip-listbox
 		formControlName="brewMethod"
-		class="bn-bean-deatil-form__field"
+		class="bn-brew-note-form__field"
 	>
-		<mat-chip-option *ngFor="let method of brewMethod">
+		<mat-chip-option
+			*ngFor="let method of brewMethod"
+			class="something"
+		>
 			<mat-icon matChipTrailingIcon>
 				{{ mapToIcon(method) }}
 			</mat-icon>
-			<!-- todo add translation -->
-			{{ method }}
+			{{ method | bnTranslate }}
 		</mat-chip-option>
 	</mat-chip-listbox>
 </div>
