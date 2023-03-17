@@ -1,8 +1,8 @@
-<ng-container
+<div
 	[formGroup]="beanDetailForm"
-	class="bn-note-detail__form"
+	class="bn-bean-deatil-form__form"
 >
-	<mat-form-field>
+	<mat-form-field class="bn-bean-deatil-form__field">
 		<input
 			#name
 			matInput
@@ -13,7 +13,7 @@
 		<mat-hint align="end"> {{ name.value.length }} / 60 </mat-hint>
 	</mat-form-field>
 
-	<mat-form-field>
+	<mat-form-field class="bn-bean-deatil-form__field">
 		<input
 			#roaster
 			matInput
@@ -24,7 +24,7 @@
 		<mat-hint align="end"> {{ roaster.value.length }} / 60 </mat-hint>
 	</mat-form-field>
 
-	<mat-form-field>
+	<mat-form-field class="bn-bean-deatil-form__field">
 		<input
 			matInput
 			[matDatepicker]="picker"
@@ -39,11 +39,12 @@
 	</mat-form-field>
 
 	<bn-country-autocomplete
+		class="bn-bean-deatil-form__field"
 		label="Country of Origin"
 		[control]="originCountry"
 	></bn-country-autocomplete>
 
-	<mat-form-field>
+	<mat-form-field class="bn-bean-deatil-form__field">
 		<input
 			#originRegion
 			matInput
@@ -56,6 +57,7 @@
 
 	<p>Altitude</p>
 	<mat-slider
+		class="bn-bean-deatil-form__field"
 		discrete
 		min="0"
 		max="8000"
@@ -69,7 +71,10 @@
 	</mat-slider>
 
 	<p>Bean Process</p>
-	<mat-chip-listbox formControlName="process">
+	<mat-chip-listbox
+		formControlName="process"
+		class="bn-bean-deatil-form__field"
+	>
 		<mat-chip-option *ngFor="let process of beanProcess">
 			<mat-icon matChipTrailingIcon>
 				{{ mapBeanProcessToIcon(process) }}
@@ -79,7 +84,10 @@
 	</mat-chip-listbox>
 
 	<p>Roast Level</p>
-	<mat-chip-listbox formControlName="roastLevel">
+	<mat-chip-listbox
+		formControlName="roastLevel"
+		class="bn-bean-deatil-form__field"
+	>
 		<mat-chip-option
 			*ngFor="let level of roastLevel; let i = index"
 			highlighted
@@ -89,4 +97,4 @@
 			{{ level }}
 		</mat-chip-option>
 	</mat-chip-listbox>
-</ng-container>
+</div>

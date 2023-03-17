@@ -1,3 +1,12 @@
-:host {
+.bn-bean-deatil-form {
 	display: block;
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__field {
+		margin-bottom: 20px;
+	}
 }
