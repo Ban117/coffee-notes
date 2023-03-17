@@ -3,109 +3,21 @@
 	linear
 >
 	<mat-step
-		[stepControl]="beanDetailForm"
+		[stepControl]="noteForm"
 		errorMessage="Something's not right"
 	>
-		<ng-template matStepLabel>Brewing Details</ng-template>
-
 		<form
-			[formGroup]="beanDetailForm"
+			[formGroup]="noteForm"
 			class="bn-note-detail__form"
 		>
-			<mat-form-field>
-				<input
-					#name
-					matInput
-					formControlName="name"
-					placeholder="Coffee Beans Name"
-				/>
+			<ng-template matStepLabel>Brewing Details</ng-template>
 
-				<mat-hint align="end"> {{ name.value.length }} / 60 </mat-hint>
-			</mat-form-field>
-
-			<mat-form-field>
-				<input
-					#roaster
-					matInput
-					formControlName="roaster"
-					placeholder="Roaster"
-				/>
-
-				<mat-hint align="end">
-					{{ roaster.value.length }} / 60
-				</mat-hint>
-			</mat-form-field>
-
-			<mat-form-field>
-				<input
-					matInput
-					[matDatepicker]="picker"
-					formControlName="roastDate"
-				/>
-				<mat-hint>Roast Date: DD/MM/YYYY</mat-hint>
-				<mat-datepicker-toggle
-					matIconSuffix
-					[for]="picker"
-				></mat-datepicker-toggle>
-				<mat-datepicker #picker></mat-datepicker>
-			</mat-form-field>
-
-			<bn-country-autocomplete
-				label="Country of Origin"
-				[control]="originCountry"
-			></bn-country-autocomplete>
-
-			<mat-form-field>
-				<input
-					#originRegion
-					matInput
-					formControlName="originRegion"
-					placeholder="Region"
-				/>
-
-				<mat-hint align="end">
-					{{ originRegion.value.length }} / 60
-				</mat-hint>
-			</mat-form-field>
-
-			<p>Altitude</p>
-			<mat-slider
-				discrete
-				min="0"
-				max="8000"
-				step="100"
-				[displayWith]="formatAltitudeLabel"
-			>
-				<input
-					matSliderThumb
-					formControlName="altitude"
-				/>
-			</mat-slider>
-
-			<p>Bean Process</p>
-			<mat-chip-listbox formControlName="process">
-				<mat-chip-option *ngFor="let process of beanProcess">
-					<mat-icon matChipTrailingIcon>
-						{{ mapBeanProcessToIcon(process) }}
-					</mat-icon>
-					{{ process }}
-				</mat-chip-option>
-			</mat-chip-listbox>
-
-			<p>Roast Level</p>
-			<mat-chip-listbox formControlName="roastLevel">
-				<mat-chip-option
-					*ngFor="let level of roastLevel; let i = index"
-					highlighted
-					[bnGradient]="i"
-					[bnGradientFactor]="30"
-				>
-					{{ level }}
-				</mat-chip-option>
-			</mat-chip-listbox>
+			<bn-bean-deatil-form
+				formGroupName="beanDetailForm"
+			></bn-bean-deatil-form>
 		</form>
 
-		<div>{{ beanDetailForm.value | json }}</div>
+		<div>{{ noteForm.value | json }}</div>
 
 		<div class="app-create-note__button-container">
 			<button
@@ -122,14 +34,6 @@
 				(click)="logForm()"
 			>
 				Log Form
-			</button>
-
-			<button
-				mat-raised-button
-				color="primary"
-				(click)="add()"
-			>
-				Add
 			</button>
 		</div>
 	</mat-step>

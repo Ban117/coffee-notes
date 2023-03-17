@@ -44,6 +44,9 @@
 			"@bn/web/note/feature/shell": [
 				"libs/web/note/feature/shell/src/index.ts"
 			],
+			"@bn/web/note/ui/bean-detail-form": [
+				"libs/web/note/ui/bean-detail-form/src/index.ts"
+			],
 			"@bn/web/shared/directives/gradient": [
 				"libs/web/shared/directives/gradient/src/index.ts"
 			],

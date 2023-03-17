@@ -39,7 +39,7 @@ export class CountryAutocompleteComponent implements OnInit {
 
 	countries: Continent[] = COFFEE_COUNTRIES_CONTINENTS;
 
-	readonly assetPath: string = ASSET_PATH;
+	readonly assetPath = ASSET_PATH;
 
 	ngOnInit() {
 		this.filteredcountries = this.control.valueChanges.pipe(
@@ -65,11 +65,11 @@ export class CountryAutocompleteComponent implements OnInit {
 		return this.countries;
 	}
 
-	private _filter(opt: Country[], value: string): Country[] {
+	private _filter(countries: Country[], value: string): Country[] {
 		const filterValue = value.toLowerCase();
 
-		return opt.filter(item =>
-			item.name.toLowerCase().includes(filterValue),
+		return countries.filter(country =>
+			country.name.toLowerCase().includes(filterValue),
 		);
 	}
 }

@@ -5,12 +5,6 @@ import { MatButtonModule } from "@angular/material/button";
 
 import { NoteDetailComponent } from "./note-detail.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input";
-import { MatDatepickerModule } from "@angular/material/datepicker";
-import { MatAutocompleteModule } from "@angular/material/autocomplete";
-import { MatSliderModule } from "@angular/material/slider";
-import { MatChipsModule } from "@angular/material/chips";
 import {
 	DateAdapter,
 	MAT_DATE_FORMATS,
@@ -18,9 +12,8 @@ import {
 } from "@angular/material/core";
 import { RouterModule, Routes } from "@angular/router";
 import { DayjsAdapter, MAT_DAYJS_DATE_FORMATS } from "@bn/web/dayjs-adapter";
-import { CountryAutocompleteModule } from "@bn/web/shared/ui/country-autocomplete";
 import { MatIconModule } from "@angular/material/icon";
-import { GradientModule } from "@bn/web/shared/directives/gradient";
+import { BeanDetailFormModule } from "@bn/web/note/ui/bean-detail-form";
 
 export const noteDetailRoutes: Routes = [
 	{
@@ -32,21 +25,14 @@ export const noteDetailRoutes: Routes = [
 @NgModule({
 	imports: [
 		CommonModule,
+		RouterModule.forChild(noteDetailRoutes),
+		ReactiveFormsModule,
+
 		MatStepperModule,
 		MatButtonModule,
-		RouterModule.forChild(noteDetailRoutes),
-
-		ReactiveFormsModule,
-		MatDatepickerModule,
-		MatFormFieldModule,
-		MatInputModule,
-		MatAutocompleteModule,
-		MatSliderModule,
-		MatChipsModule,
 		MatIconModule,
 
-		CountryAutocompleteModule,
-		GradientModule,
+		BeanDetailFormModule,
 	],
 	declarations: [NoteDetailComponent],
 	exports: [NoteDetailComponent],
