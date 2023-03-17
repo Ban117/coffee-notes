@@ -9,6 +9,7 @@ import {
 } from "@angular/core";
 import { FormGroup, FormGroupDirective } from "@angular/forms";
 import { BREW_METHOD } from "@bn/web/note/data-access";
+import { mapToIcon } from "@bn/web/note/utils";
 
 @Component({
 	selector: "bn-brew-note-form",
@@ -24,6 +25,8 @@ export class BrewNoteFormComponent implements OnInit {
 	brewNoteForm!: FormGroup;
 
 	readonly brewMethod = BREW_METHOD;
+
+	mapToIcon = mapToIcon;
 
 	constructor(
 		@Host() @Optional() private parentFormGroup: FormGroupDirective,

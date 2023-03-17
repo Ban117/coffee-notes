@@ -13,8 +13,8 @@ export function mapToIcon(item: BeanProcess | BrewMethod): string {
 		case "washed":
 			return "wash";
 		case "pourOver":
-			return "kettle";
+			return "coffee";
 		case "espresso":
-			return "asd";
+			return "coffee_maker";
 	}
 }

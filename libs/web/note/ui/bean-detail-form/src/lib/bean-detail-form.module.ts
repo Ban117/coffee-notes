@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-
 import { ReactiveFormsModule } from "@angular/forms";
+
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatDatepickerModule } from "@angular/material/datepicker";
@@ -13,9 +13,10 @@ import {
 	MAT_DATE_FORMATS,
 	MAT_DATE_LOCALE,
 } from "@angular/material/core";
+import { MatIconModule } from "@angular/material/icon";
+
 import { DayjsAdapter, MAT_DAYJS_DATE_FORMATS } from "@bn/web/dayjs-adapter";
 import { CountryAutocompleteModule } from "@bn/web/shared/ui/country-autocomplete";
-import { MatIconModule } from "@angular/material/icon";
 import { GradientModule } from "@bn/web/shared/directives/gradient";
 
 import { BeanDeatilFormComponent } from "./bean-deatil-form.component";
