@@ -47,6 +47,10 @@
 			"@bn/web/note/ui/bean-detail-form": [
 				"libs/web/note/ui/bean-detail-form/src/index.ts"
 			],
+			"@bn/web/note/ui/brew-note-form": [
+				"libs/web/note/ui/brew-note-form/src/index.ts"
+			],
+			"@bn/web/note/utils": ["libs/web/note/utils/src/index.ts"],
 			"@bn/web/shared/directives/click-stop-propagation": [
 				"libs/web/shared/directives/click-stop-propagation/src/index.ts"
 			],

@@ -1,0 +1,12 @@
+.bn-brew-note-form {
+	display: block;
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__field {
+		margin-bottom: 20px;
+	}
+}

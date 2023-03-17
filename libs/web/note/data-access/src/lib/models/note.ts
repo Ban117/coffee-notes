@@ -20,7 +20,8 @@ export interface BeanDetail {
 	roastLevel: RoastLevel | undefined;
 }
 
-export type BrewMethod = "pourOver" | "espresso";
+export const BREW_METHOD = ["pourOver", "espresso"] as const;
+export type BrewMethod = ExtractTypeFromReadonlyArray<typeof BREW_METHOD>;
 
 export interface BrewNote {
 	brewMethod: BrewMethod | undefined;

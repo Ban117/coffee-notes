@@ -8,11 +8,8 @@ import {
 	ViewEncapsulation,
 } from "@angular/core";
 import { FormControl, FormGroup, FormGroupDirective } from "@angular/forms";
-import {
-	BeanProcess,
-	BEAN_PROCESS,
-	ROAST_LEVEL,
-} from "@bn/web/note/data-access";
+import { BEAN_PROCESS, ROAST_LEVEL } from "@bn/web/note/data-access";
+import { mapToIcon } from "@bn/web/note/utils";
 
 @Component({
 	selector: "bn-bean-deatil-form",
@@ -30,6 +27,8 @@ export class BeanDeatilFormComponent implements OnInit {
 	readonly beanProcess = BEAN_PROCESS;
 
 	readonly roastLevel = ROAST_LEVEL;
+
+	mapToIcon = mapToIcon;
 
 	get originCountry(): FormControl<string | null> {
 		const control = this.beanDetailForm.get("originCountry");
@@ -50,21 +49,6 @@ export class BeanDeatilFormComponent implements OnInit {
 		this.beanDetailForm = this.parentFormGroup.control.get(
 			this.formGroupName,
 		) as FormGroup;
-	}
-
-	/**
-	 * Uses typescript exhaustiveness checking so that if we add a new process and don't
-	 * map to an icon, we'll get a type error and not a runtime error/empty icon
-	 */
-	mapBeanProcessToIcon(process: BeanProcess): string {
-		switch (process) {
-			case "honey":
-				return "hive";
-			case "natural":
-				return "sunny";
-			case "washed":
-				return "wash";
-		}
 	}
 
 	formatAltitudeLabel(value: number): string {

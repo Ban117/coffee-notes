@@ -29,6 +29,11 @@ export class NoteDetailComponent {
 		}),
 		brewDetailForm: this.fb.group({
 			brewMethod: "",
+			beanDose: 0,
+			waterAmount: 0,
+			grindSize: 0,
+			brewDuration: 0,
+			extraNotes: "",
 		}),
 		tastingNotesForm: this.fb.group({
 			aromas: "",
