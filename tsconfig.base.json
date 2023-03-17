@@ -47,6 +47,9 @@
 			"@bn/web/note/ui/bean-detail-form": [
 				"libs/web/note/ui/bean-detail-form/src/index.ts"
 			],
+			"@bn/web/shared/directives/click-stop-propagation": [
+				"libs/web/shared/directives/click-stop-propagation/src/index.ts"
+			],
 			"@bn/web/shared/directives/gradient": [
 				"libs/web/shared/directives/gradient/src/index.ts"
 			],

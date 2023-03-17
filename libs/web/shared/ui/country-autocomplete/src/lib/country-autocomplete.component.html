@@ -8,11 +8,12 @@
 	/>
 	<button
 		*ngIf="control.value"
+		bnClickStopPropagation
 		matSuffix
 		mat-icon-button
 		aria-label="Clear"
 		type="button"
-		(click)="control.patchValue(''); $event.stopPropagation()"
+		(click)="control.patchValue('')"
 	>
 		<mat-icon>close</mat-icon>
 	</button>

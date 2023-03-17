@@ -7,6 +7,7 @@ import { CountryAutocompleteComponent } from "./country-autocomplete.component";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
+import { ClickStopPropagationModule } from "@bn/web/shared/directives/click-stop-propagation";
 
 @NgModule({
 	imports: [
@@ -17,6 +18,8 @@ import { MatButtonModule } from "@angular/material/button";
 		MatIconModule,
 		MatAutocompleteModule,
 		MatFormFieldModule,
+
+		ClickStopPropagationModule,
 	],
 	declarations: [CountryAutocompleteComponent],
 	exports: [CountryAutocompleteComponent],

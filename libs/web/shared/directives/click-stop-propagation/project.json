@@ -1,0 +1,34 @@
+{
+	"name": "web-shared-directives-click-stop-propagation",
+	"$schema": "../node_modules/nx/schemas/project-schema.json",
+	"projectType": "library",
+	"sourceRoot": "libs/web/shared/directives/click-stop-propagation/src",
+	"prefix": "bn",
+	"targets": {
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "libs/web/shared/directives/click-stop-propagation/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": [
+					"libs/web/shared/directives/click-stop-propagation/**/*.ts",
+					"libs/web/shared/directives/click-stop-propagation/**/*.html"
+				]
+			}
+		}
+	},
+	"tags": []
+}
