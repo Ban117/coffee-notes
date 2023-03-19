@@ -2,42 +2,43 @@
 	labelPosition="bottom"
 	linear
 >
-	<mat-step
-		[stepControl]="noteForm"
-		errorMessage="Something's not right"
+	<form
+		[formGroup]="noteForm"
+		class="bn-note-detail__form"
 	>
-		<form
-			[formGroup]="noteForm"
-			class="bn-note-detail__form"
-		>
+		<mat-step errorMessage="Something's not right">
 			<ng-template matStepLabel>Bean Details</ng-template>
 
-			<bn-bean-deatil-form
+			<bn-bean-detail-form
 				formGroupName="beanDetailForm"
-			></bn-bean-deatil-form>
+			></bn-bean-detail-form>
+		</mat-step>
+
+		<mat-step errorMessage="Something's not right">
+			<ng-template matStepLabel>Brew Details</ng-template>
 
 			<bn-brew-note-form formGroupName="brewDetailForm">
 			</bn-brew-note-form>
-		</form>
+		</mat-step>
+	</form>
 
-		<div>{{ noteForm.value | json }}</div>
+	<div class="app-create-note__button-container">
+		<button
+			mat-raised-button
+			color="primary"
+			matStepperNext
+		>
+			Add Tasting Notes
+		</button>
 
-		<div class="app-create-note__button-container">
-			<button
-				mat-raised-button
-				color="primary"
-				matStepperNext
-			>
-				Add Tasting Notes
-			</button>
+		<button
+			mat-raised-button
+			color="primary"
+			(click)="logForm()"
+		>
+			Log Form
+		</button>
+	</div>
 
-			<button
-				mat-raised-button
-				color="primary"
-				(click)="logForm()"
-			>
-				Log Form
-			</button>
-		</div>
-	</mat-step>
+	<div>{{ noteForm.value | json }}</div>
 </mat-stepper>
