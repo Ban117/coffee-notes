@@ -1,7 +1,4 @@
-<mat-stepper
-	labelPosition="bottom"
-	linear
->
+<mat-stepper labelPosition="bottom">
 	<form
 		[formGroup]="noteForm"
 		class="bn-note-detail__form"
@@ -20,25 +17,24 @@
 			<bn-brew-note-form formGroupName="brewDetailForm">
 			</bn-brew-note-form>
 		</mat-step>
+
+		<mat-step errorMessage="Something's not right">
+			<ng-template matStepLabel>Tasting Notes</ng-template>
+
+			<bn-tasting-note-form formGroupName="tastingNotesForm">
+			</bn-tasting-note-form>
+		</mat-step>
 	</form>
-
-	<div class="app-create-note__button-container">
-		<button
-			mat-raised-button
-			color="primary"
-			matStepperNext
-		>
-			Add Tasting Notes
-		</button>
-
-		<button
-			mat-raised-button
-			color="primary"
-			(click)="logForm()"
-		>
-			Log Form
-		</button>
-	</div>
-
-	<div>{{ noteForm.value | json }}</div>
 </mat-stepper>
+
+<div class="app-create-note__button-container">
+	<button
+		mat-raised-button
+		color="primary"
+		(click)="logForm()"
+	>
+		Log Form
+	</button>
+</div>
+
+<div>{{ noteForm.value | json }}</div>

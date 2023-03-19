@@ -9,6 +9,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { MatIconModule } from "@angular/material/icon";
 import { BeanDetailFormModule } from "@bn/web/note/ui/bean-detail-form";
 import { BrewNoteFormModule } from "@bn/web/note/ui/brew-note-form";
+import { TastingNoteFormModule } from "@bn/web/note/ui/tasting-note-form";
 
 export const noteDetailRoutes: Routes = [
 	{
@@ -29,6 +30,7 @@ export const noteDetailRoutes: Routes = [
 
 		BeanDetailFormModule,
 		BrewNoteFormModule,
+		TastingNoteFormModule,
 	],
 	declarations: [NoteDetailComponent],
 	exports: [NoteDetailComponent],

@@ -36,7 +36,14 @@ export class NoteDetailComponent {
 			extraNotes: "",
 		}),
 		tastingNotesForm: this.fb.group({
-			aromas: "",
+			aromas: [""],
+			flavors: [""],
+			body: 0,
+			intensity: 0,
+			acidity: 0,
+			bitterness: 0,
+			sweetness: 0,
+			extraNotes: "",
 		}),
 	});
 
