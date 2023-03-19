@@ -1,36 +1,37 @@
 <div
 	[formGroup]="beanDetailForm"
-	class="bn-bean-deatil-form__form"
+	class="bn-bean-detail-form__form"
 >
-	<mat-form-field class="bn-bean-deatil-form__field">
+	<mat-form-field class="bn-bean-detail-form__field">
+		<mat-label>Coffee Beans Name</mat-label>
 		<input
 			#name
 			matInput
 			formControlName="name"
-			placeholder="Coffee Beans Name"
 		/>
 
 		<mat-hint align="end"> {{ name.value.length }} / 60 </mat-hint>
 	</mat-form-field>
 
-	<mat-form-field class="bn-bean-deatil-form__field">
+	<mat-form-field class="bn-bean-detail-form__field">
+		<mat-label>Roaster</mat-label>
 		<input
 			#roaster
 			matInput
 			formControlName="roaster"
-			placeholder="Roaster"
 		/>
 
 		<mat-hint align="end"> {{ roaster.value.length }} / 60 </mat-hint>
 	</mat-form-field>
 
-	<mat-form-field class="bn-bean-deatil-form__field">
+	<mat-form-field class="bn-bean-detail-form__field">
+		<mat-label>Roast Date</mat-label>
 		<input
 			matInput
 			[matDatepicker]="picker"
 			formControlName="roastDate"
 		/>
-		<mat-hint>Roast Date: DD/MM/YYYY</mat-hint>
+		<mat-hint>DD/MM/YYYY</mat-hint>
 		<mat-datepicker-toggle
 			matIconSuffix
 			[for]="picker"
@@ -39,25 +40,25 @@
 	</mat-form-field>
 
 	<bn-country-autocomplete
-		class="bn-bean-deatil-form__field"
+		class="bn-bean-detail-form__field"
 		label="Country of Origin"
 		[control]="originCountry"
 	></bn-country-autocomplete>
 
-	<mat-form-field class="bn-bean-deatil-form__field">
+	<mat-form-field class="bn-bean-detail-form__field">
+		<mat-label>Region</mat-label>
 		<input
 			#originRegion
 			matInput
 			formControlName="originRegion"
-			placeholder="Region"
 		/>
 
 		<mat-hint align="end"> {{ originRegion.value.length }} / 60 </mat-hint>
 	</mat-form-field>
 
-	<p>Altitude</p>
+	<mat-label>{{ "Altitude: " + altitudeInput.value }}</mat-label>
 	<mat-slider
-		class="bn-bean-deatil-form__field"
+		class="bn-bean-detail-form__field"
 		discrete
 		min="0"
 		max="8000"
@@ -65,15 +66,16 @@
 		[displayWith]="formatAltitudeLabel"
 	>
 		<input
+			#altitudeInput
 			matSliderThumb
 			formControlName="altitude"
 		/>
 	</mat-slider>
 
-	<p>Bean Process</p>
+	<mat-label>Bean Process</mat-label>
 	<mat-chip-listbox
 		formControlName="process"
-		class="bn-bean-deatil-form__field"
+		class="bn-bean-detail-form__field"
 	>
 		<mat-chip-option *ngFor="let process of beanProcess">
 			<mat-icon matChipTrailingIcon>
@@ -83,10 +85,10 @@
 		</mat-chip-option>
 	</mat-chip-listbox>
 
-	<p>Roast Level</p>
+	<mat-label>Roast Level</mat-label>
 	<mat-chip-listbox
 		formControlName="roastLevel"
-		class="bn-bean-deatil-form__field"
+		class="bn-bean-detail-form__field"
 	>
 		<mat-chip-option
 			*ngFor="let level of roastLevel; let i = index"

@@ -12,14 +12,14 @@ import { BEAN_PROCESS, ROAST_LEVEL } from "@bn/web/note/data-access";
 import { mapToIcon } from "@bn/web/note/utils";
 
 @Component({
-	selector: "bn-bean-deatil-form",
-	host: { class: "bn-bean-deatil-form" },
-	templateUrl: "./bean-deatil-form.component.html",
-	styleUrls: ["./bean-deatil-form.component.scss"],
+	selector: "bn-bean-detail-form",
+	host: { class: "bn-bean-detail-form" },
+	templateUrl: "./bean-detail-form.component.html",
+	styleUrls: ["./bean-detail-form.component.scss"],
 	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BeanDeatilFormComponent implements OnInit {
+export class BeanDetailFormComponent implements OnInit {
 	@Input() formGroupName!: string;
 
 	beanDetailForm!: FormGroup;

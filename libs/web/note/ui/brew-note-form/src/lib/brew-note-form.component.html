@@ -2,19 +2,65 @@
 	[formGroup]="brewNoteForm"
 	class="bn-brew-note-form__form"
 >
-	<p>Brew Method</p>
+	<mat-label>Brew Method</mat-label>
 	<mat-chip-listbox
 		formControlName="brewMethod"
 		class="bn-brew-note-form__field"
 	>
-		<mat-chip-option
-			*ngFor="let method of brewMethod"
-			class="something"
-		>
+		<mat-chip-option *ngFor="let method of brewMethod">
 			<mat-icon matChipTrailingIcon>
 				{{ mapToIcon(method) }}
 			</mat-icon>
 			{{ method | bnTranslate }}
 		</mat-chip-option>
 	</mat-chip-listbox>
+
+	<mat-form-field>
+		<mat-label>Coffee Dose</mat-label>
+		<input
+			class="example-right-align"
+			matInput
+			type="number"
+			formControlName="beanDose"
+		/>
+		<p matTextSuffix>grams</p>
+	</mat-form-field>
+
+	<mat-form-field>
+		<mat-label>Water amount</mat-label>
+		<input
+			class="bn-brew-note-form__number-field"
+			matInput
+			type="number"
+			formControlName="waterAmount"
+		/>
+		<span matTextSuffix>grams (ml)</span>
+	</mat-form-field>
+
+	<mat-label>{{ "Grind Size: " + grindSizeInput.value }}</mat-label>
+	<mat-slider
+		class="bn-brew-note-form__field"
+		discrete
+		min="1"
+		max="50"
+	>
+		<input
+			#grindSizeInput
+			matSliderThumb
+			formControlName="grindSize"
+		/>
+	</mat-slider>
+
+	<bn-duration-slider
+		[control]="brewDurationControl"
+		label="Brew Duration: "
+	></bn-duration-slider>
+
+	<mat-form-field appearance="fill">
+		<mat-label>Extra Notes</mat-label>
+		<textarea
+			matInput
+			formControlName="extraNotes"
+		></textarea>
+	</mat-form-field>
 </div>

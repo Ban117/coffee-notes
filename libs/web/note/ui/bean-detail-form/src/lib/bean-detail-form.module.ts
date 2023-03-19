@@ -19,7 +19,7 @@ import { DayjsAdapter, MAT_DAYJS_DATE_FORMATS } from "@bn/web/dayjs-adapter";
 import { CountryAutocompleteModule } from "@bn/web/shared/ui/country-autocomplete";
 import { GradientModule } from "@bn/web/shared/directives/gradient";
 
-import { BeanDeatilFormComponent } from "./bean-deatil-form.component";
+import { BeanDetailFormComponent } from "./bean-detail-form.component";
 
 @NgModule({
 	imports: [
@@ -37,8 +37,8 @@ import { BeanDeatilFormComponent } from "./bean-deatil-form.component";
 		CountryAutocompleteModule,
 		GradientModule,
 	],
-	declarations: [BeanDeatilFormComponent],
-	exports: [BeanDeatilFormComponent],
+	declarations: [BeanDetailFormComponent],
+	exports: [BeanDetailFormComponent],
 	providers: [
 		{
 			provide: DateAdapter,

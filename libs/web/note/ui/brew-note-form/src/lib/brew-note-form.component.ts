@@ -7,7 +7,7 @@ import {
 	Optional,
 	ViewEncapsulation,
 } from "@angular/core";
-import { FormGroup, FormGroupDirective } from "@angular/forms";
+import { FormControl, FormGroup, FormGroupDirective } from "@angular/forms";
 import { BREW_METHOD } from "@bn/web/note/data-access";
 import { mapToIcon } from "@bn/web/note/utils";
 
@@ -27,6 +27,13 @@ export class BrewNoteFormComponent implements OnInit {
 	readonly brewMethod = BREW_METHOD;
 
 	mapToIcon = mapToIcon;
+
+	// todo maybe assert?
+	get brewDurationControl(): FormControl<string | null> {
+		return this.brewNoteForm.get("brewDuration") as FormControl<
+			string | null
+		>;
+	}
 
 	constructor(
 		@Host() @Optional() private parentFormGroup: FormGroupDirective,
