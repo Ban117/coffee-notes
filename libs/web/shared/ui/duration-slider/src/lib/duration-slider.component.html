@@ -1,0 +1,15 @@
+<label *ngIf="label">{{ label + formatLabel(sliderInput.value) }}</label>
+<mat-slider
+	class="bn-duration-slider__slider"
+	discrete
+	[min]="min"
+	[max]="max"
+	step="1"
+	[displayWith]="formatLabel"
+>
+	<input
+		#sliderInput
+		matSliderThumb
+		[formControl]="control"
+	/>
+</mat-slider>
