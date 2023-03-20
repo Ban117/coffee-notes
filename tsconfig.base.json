@@ -69,6 +69,9 @@
 			"@bn/web/shared/ui/animation": [
 				"libs/web/shared/ui/animation/src/index.ts"
 			],
+			"@bn/web/shared/ui/chips-autocomplete": [
+				"libs/web/shared/ui/chips-autocomplete/src/index.ts"
+			],
 			"@bn/web/shared/ui/country-autocomplete": [
 				"libs/web/shared/ui/country-autocomplete/src/index.ts"
 			],

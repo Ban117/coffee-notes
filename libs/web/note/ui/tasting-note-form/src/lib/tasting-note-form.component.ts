@@ -7,7 +7,7 @@ import {
 	Optional,
 	ViewEncapsulation,
 } from "@angular/core";
-import { FormGroup, FormGroupDirective } from "@angular/forms";
+import { FormControl, FormGroup, FormGroupDirective } from "@angular/forms";
 
 @Component({
 	selector: "bn-tasting-note-form",
@@ -21,6 +21,15 @@ export class TastingNoteFormComponent implements OnInit {
 	@Input() formGroupName!: string;
 
 	tastingNoteForm!: FormGroup;
+
+	// todo rm, debug only
+	aromaOptions = ["floral", "chocolatey"];
+
+	get aromas(): FormControl<string[] | null> {
+		return this.tastingNoteForm.get("aromas") as FormControl<
+			string[] | null
+		>;
+	}
 
 	constructor(
 		@Host() @Optional() private parentFormGroup: FormGroupDirective,

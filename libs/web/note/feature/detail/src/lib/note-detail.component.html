@@ -4,6 +4,12 @@
 		class="bn-note-detail__form"
 	>
 		<mat-step errorMessage="Something's not right">
+			<ng-template matStepLabel>Tasting Notes</ng-template>
+
+			<bn-tasting-note-form formGroupName="tastingNotesForm">
+			</bn-tasting-note-form>
+		</mat-step>
+		<mat-step errorMessage="Something's not right">
 			<ng-template matStepLabel>Bean Details</ng-template>
 
 			<bn-bean-detail-form
@@ -17,24 +23,17 @@
 			<bn-brew-note-form formGroupName="brewDetailForm">
 			</bn-brew-note-form>
 		</mat-step>
-
-		<mat-step errorMessage="Something's not right">
-			<ng-template matStepLabel>Tasting Notes</ng-template>
-
-			<bn-tasting-note-form formGroupName="tastingNotesForm">
-			</bn-tasting-note-form>
-		</mat-step>
 	</form>
 </mat-stepper>
 
 <div class="app-create-note__button-container">
-	<button
+	<!-- <button
 		mat-raised-button
 		color="primary"
 		(click)="logForm()"
 	>
 		Log Form
-	</button>
+	</button> -->
 </div>
 
 <div>{{ noteForm.value | json }}</div>

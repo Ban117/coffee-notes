@@ -6,6 +6,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatChipsModule } from "@angular/material/chips";
 
+import { ChipsAutocompleteModule } from "@bn/web/shared/ui/chips-autocomplete";
+
 import { TastingNoteFormComponent } from "./tasting-note-form.component";
 
 @NgModule({
@@ -16,6 +18,8 @@ import { TastingNoteFormComponent } from "./tasting-note-form.component";
 		MatFormFieldModule,
 		MatInputModule,
 		MatChipsModule,
+
+		ChipsAutocompleteModule,
 	],
 	declarations: [TastingNoteFormComponent],
 	exports: [TastingNoteFormComponent],
