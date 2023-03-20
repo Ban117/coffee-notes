@@ -8,31 +8,34 @@
 		[opened]="(isHandset$ | async) === false"
 	>
 		<!-- todo implement -->
-		<mat-toolbar>username</mat-toolbar>
-		<mat-nav-list>
-			<a
-				mat-list-item
-				routerLink="home"
-				>Home</a
+		<ng-container *ngIf="user$ | async as user">
+			<mat-toolbar>{{ user.email }}</mat-toolbar>
+			<mat-nav-list>
+				<a
+					mat-list-item
+					routerLink="home"
+					>Home</a
+				>
+				<a
+					mat-list-item
+					routerLink="auth"
+					>Auth (debug)</a
+				>
+				<a
+					mat-list-item
+					routerLink="note"
+					>Notes</a
+				>
+			</mat-nav-list>
+			<button
+				(click)="logout()"
+				mat-button
 			>
-			<a
-				mat-list-item
-				routerLink="auth"
-				>Auth</a
-			>
-			<a
-				mat-list-item
-				routerLink="note"
-				>Notes</a
-			>
-		</mat-nav-list>
-		<button
-			(click)="logout()"
-			mat-button
-		>
-			Logout
-		</button>
+				Logout (debug)
+			</button>
+		</ng-container>
 	</mat-sidenav>
+
 	<mat-sidenav-content>
 		<bn-top-bar
 			[isHandset$]="isHandset$"

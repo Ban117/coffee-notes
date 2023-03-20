@@ -7,7 +7,7 @@ import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { Observable } from "rxjs";
 import { map, shareReplay } from "rxjs/operators";
 import { Store } from "@ngxs/store";
-import { AuthActions } from "@bn/web/auth/data-access";
+import { AuthActions, AuthState } from "@bn/web/auth/data-access";
 
 @Component({
 	selector: "bn-layout",
@@ -18,6 +18,8 @@ import { AuthActions } from "@bn/web/auth/data-access";
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutComponent {
+	user$ = this.store.select(AuthState.user);
+
 	isHandset$: Observable<boolean> = this.breakpointObserver
 		.observe(Breakpoints.Handset)
 		.pipe(
