@@ -1,0 +1,22 @@
+<input
+	#fileUploadInput
+	class="bn-uploader__input"
+	type="file"
+	(change)="addFiles($event)"
+/>
+
+<div *ngIf="showFilename">
+	{{ filename ? (filename | trimFilename) : "No file uploaded yet." }}
+</div>
+
+<ng-container *ngTemplateOutlet="defaultAttachButtonTemplate"> </ng-container>
+
+<ng-template #defaultAttachButtonTemplate>
+	<button
+		mat-fab
+		color="primary"
+		(click)="fileUploadInput.click()"
+	>
+		<mat-icon>attach_file</mat-icon>
+	</button>
+</ng-template>

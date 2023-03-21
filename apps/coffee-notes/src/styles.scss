@@ -95,6 +95,7 @@ $coffee-notes-theme: mat.define-dark-theme(
 // todo sort these
 @include mat.core-theme($coffee-notes-theme);
 @include mat.button-theme($coffee-notes-theme);
+@include mat.fab-theme($coffee-notes-theme);
 @include mat.toolbar-theme($coffee-notes-theme);
 @include mat.tabs-theme($coffee-notes-theme);
 @include mat.card-theme($coffee-notes-theme);

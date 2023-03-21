@@ -1,9 +1,11 @@
 import { inject, LOCALE_ID, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
 import { Routes, RouterModule, Router, CanMatchFn } from "@angular/router";
 import { LayoutComponent } from "@bn/web/shell/ui/layout";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireStorageModule } from "@angular/fire/compat/storage";
 import { environment } from "@bn/shared/environments";
 import { NgxsModule, Store } from "@ngxs/store";
 import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
@@ -11,7 +13,6 @@ import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
 import { NgxsLoggerPluginModule } from "@ngxs/logger-plugin";
 import { AuthActions, AuthState } from "@bn/web/auth/data-access";
 import { map, switchMap } from "rxjs";
-import { HttpClientModule } from "@angular/common/http";
 
 export const authGuard: CanMatchFn = () => {
 	const store = inject(Store);
@@ -68,6 +69,7 @@ export const webShellRoutes: Routes = [
 		RouterModule.forRoot(webShellRoutes),
 		BrowserAnimationsModule,
 		AngularFireModule.initializeApp(environment.firebaseConfig),
+		AngularFireStorageModule,
 		NgxsModule.forRoot([AuthState], {
 			selectorOptions: {
 				injectContainerState: false,

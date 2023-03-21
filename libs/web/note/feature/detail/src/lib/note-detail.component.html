@@ -37,4 +37,10 @@
 	</button> -->
 </div>
 
+<bn-uploader
+	[uploaderFn]="uploaderFn"
+	(stateChange)="onStateChange($event)"
+>
+</bn-uploader>
+
 <div>{{ noteForm.value | json }}</div>
