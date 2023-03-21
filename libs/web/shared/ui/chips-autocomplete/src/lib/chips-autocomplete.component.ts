@@ -30,7 +30,7 @@ export class ChipsAutocompleteComponent {
 
 	@Input() options: string[] = [];
 
-	@Input() chipGridCtrl = new FormControl();
+	@Input() chipGridControl = new FormControl();
 
 	separatorKeysCodes: number[] = [ENTER, COMMA];
 
@@ -56,9 +56,9 @@ export class ChipsAutocompleteComponent {
 		const value = event.value;
 
 		if (value.trim()) {
-			const val = [...(this.chipGridCtrl.value ?? []), value];
+			const val = [...(this.chipGridControl.value ?? []), value];
 
-			this.chipGridCtrl.setValue(val);
+			this.chipGridControl.setValue(val);
 		}
 
 		if (input) {
@@ -69,27 +69,27 @@ export class ChipsAutocompleteComponent {
 	}
 
 	optionDisabled(option: string): boolean {
-		return !!this.chipGridCtrl.getRawValue()?.includes(option);
+		return !!this.chipGridControl.getRawValue()?.includes(option);
 	}
 
 	remove(chip: string) {
-		const value = this.chipGridCtrl.value ?? [];
+		const value = this.chipGridControl.value ?? [];
 
 		const index = value.indexOf(chip);
 
 		if (index >= 0) {
 			const val = [...value];
 			val.splice(index, 1);
-			this.chipGridCtrl.setValue(val);
+			this.chipGridControl.setValue(val);
 		}
 	}
 
 	selected(event: MatAutocompleteSelectedEvent) {
 		event.option.deselect();
 
-		const val = [...(this.chipGridCtrl.value ?? [])];
+		const val = [...(this.chipGridControl.value ?? [])];
 		val.push(event.option.viewValue);
-		this.chipGridCtrl.setValue(val);
+		this.chipGridControl.setValue(val);
 		this.inputEl.nativeElement.value = "";
 		this.inputControl.setValue(null);
 	}

@@ -24,9 +24,16 @@ export class TastingNoteFormComponent implements OnInit {
 
 	// todo rm, debug only
 	aromaOptions = ["floral", "chocolatey"];
+	flavorsOptions = ["sweet", "nutmeg"];
 
-	get aromas(): FormControl<string[] | null> {
+	get aromasControl(): FormControl<string[] | null> {
 		return this.tastingNoteForm.get("aromas") as FormControl<
+			string[] | null
+		>;
+	}
+
+	get flavorsControl(): FormControl<string[] | null> {
+		return this.tastingNoteForm.get("flavors") as FormControl<
 			string[] | null
 		>;
 	}

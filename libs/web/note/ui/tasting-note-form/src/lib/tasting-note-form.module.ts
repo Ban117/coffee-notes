@@ -9,6 +9,7 @@ import { MatChipsModule } from "@angular/material/chips";
 import { ChipsAutocompleteModule } from "@bn/web/shared/ui/chips-autocomplete";
 
 import { TastingNoteFormComponent } from "./tasting-note-form.component";
+import { MatSliderModule } from "@angular/material/slider";
 
 @NgModule({
 	imports: [
@@ -18,6 +19,7 @@ import { TastingNoteFormComponent } from "./tasting-note-form.component";
 		MatFormFieldModule,
 		MatInputModule,
 		MatChipsModule,
+		MatSliderModule,
 
 		ChipsAutocompleteModule,
 	],

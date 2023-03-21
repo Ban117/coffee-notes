@@ -1,6 +1,100 @@
-<bn-chips-autocomplete
-	label="Aromas"
-	placeholder="Add aroma"
-	[options]="aromaOptions"
-	[chipGridCtrl]="aromas"
-></bn-chips-autocomplete>
+<div
+	[formGroup]="tastingNoteForm"
+	class="bn-tasting-note-form__form"
+>
+	<bn-chips-autocomplete
+		label="Aromas"
+		placeholder="Add aroma"
+		[options]="aromaOptions"
+		[chipGridControl]="aromasControl"
+	></bn-chips-autocomplete>
+
+	<bn-chips-autocomplete
+		class="bn-tasting-note-form__field"
+		label="Flavors"
+		placeholder="Add flavor"
+		[options]="flavorsOptions"
+		[chipGridControl]="flavorsControl"
+	></bn-chips-autocomplete>
+
+	<mat-label>{{ "Body: " + bodyInput.value }}</mat-label>
+	<mat-slider
+		class="bn-tasting-note-form__field"
+		discrete
+		min="1"
+		max="10"
+	>
+		<input
+			#bodyInput
+			matSliderThumb
+			formControlName="body"
+		/>
+	</mat-slider>
+
+	<mat-label>{{ "Intensity: " + intensityInput.value }}</mat-label>
+	<mat-slider
+		class="bn-tasting-note-form__field"
+		discrete
+		min="1"
+		max="10"
+	>
+		<input
+			#intensityInput
+			matSliderThumb
+			formControlName="intensity"
+		/>
+	</mat-slider>
+
+	<mat-label>{{ "Acidity: " + acidityInput.value }}</mat-label>
+	<mat-slider
+		class="bn-tasting-note-form__field"
+		discrete
+		min="1"
+		max="10"
+	>
+		<input
+			#acidityInput
+			matSliderThumb
+			formControlName="acidity"
+		/>
+	</mat-slider>
+
+	<mat-label>{{ "Bitterness: " + bitternessInput.value }}</mat-label>
+	<mat-slider
+		class="bn-tasting-note-form__field"
+		discrete
+		min="1"
+		max="10"
+	>
+		<input
+			#bitternessInput
+			matSliderThumb
+			formControlName="bitterness"
+		/>
+	</mat-slider>
+
+	<mat-label>{{ "Sweetness: " + sweetnessInput.value }}</mat-label>
+	<mat-slider
+		class="bn-tasting-note-form__field"
+		discrete
+		min="1"
+		max="10"
+	>
+		<input
+			#sweetnessInput
+			matSliderThumb
+			formControlName="sweetness"
+		/>
+	</mat-slider>
+
+	<mat-form-field
+		appearance="fill"
+		class="bn-tasting-note-form__field"
+	>
+		<mat-label>Extra Notes</mat-label>
+		<textarea
+			matInput
+			formControlName="extraNotes"
+		></textarea>
+	</mat-form-field>
+</div>

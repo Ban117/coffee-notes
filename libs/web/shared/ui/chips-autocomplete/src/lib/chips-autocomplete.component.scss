@@ -1,3 +1,7 @@
 .bn-chips-autocomplete {
 	display: block;
+
+	&__field {
+		width: 100%;
+	}
 }

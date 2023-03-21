@@ -1,11 +1,11 @@
-<mat-form-field>
+<mat-form-field class="bn-chips-autocomplete__field">
 	<mat-label *ngIf="label">{{ label }}</mat-label>
 	<mat-chip-grid
 		#chipList
-		[formControl]="chipGridCtrl"
+		[formControl]="chipGridControl"
 	>
 		<mat-chip-row
-			*ngFor="let chip of chipGridCtrl.value"
+			*ngFor="let chip of chipGridControl.value"
 			(removed)="remove(chip)"
 		>
 			{{ chip }}
