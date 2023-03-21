@@ -66,6 +66,9 @@
 			"@bn/web/shared/pipes/translate": [
 				"libs/web/shared/pipes/translate/src/index.ts"
 			],
+			"@bn/web/shared/pipes/trim-filename": [
+				"libs/web/shared/pipes/trim-filename/src/index.ts"
+			],
 			"@bn/web/shared/ui/animation": [
 				"libs/web/shared/ui/animation/src/index.ts"
 			],
@@ -77,6 +80,9 @@
 			],
 			"@bn/web/shared/ui/duration-slider": [
 				"libs/web/shared/ui/duration-slider/src/index.ts"
+			],
+			"@bn/web/shared/ui/uploader": [
+				"libs/web/shared/ui/uploader/src/index.ts"
 			],
 			"@bn/web/shared/utils": ["libs/web/shared/utils/src/index.ts"],
 			"@bn/web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
