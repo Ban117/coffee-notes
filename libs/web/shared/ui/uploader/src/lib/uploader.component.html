@@ -5,17 +5,26 @@
 	(change)="addFiles($event)"
 />
 
-<div *ngIf="showFilename">
-	{{ filename ? (filename | trimFilename) : "No file uploaded yet." }}
-</div>
+<ng-container
+	*ngTemplateOutlet="
+		uploaderTemplate || defaultAttachButtonTemplate;
+		context: { $implicit: fileUploadInput }
+	"
+>
+</ng-container>
 
-<ng-container *ngTemplateOutlet="defaultAttachButtonTemplate"> </ng-container>
+<ng-template
+	#defaultAttachButtonTemplate
+	let-uploadInput
+>
+	<div *ngIf="showFilename">
+		{{ filename ? (filename | trimFilename) : "No file uploaded yet." }}
+	</div>
 
-<ng-template #defaultAttachButtonTemplate>
 	<button
 		mat-fab
 		color="primary"
-		(click)="fileUploadInput.click()"
+		(click)="uploadInput.click()"
 	>
 		<mat-icon>attach_file</mat-icon>
 	</button>

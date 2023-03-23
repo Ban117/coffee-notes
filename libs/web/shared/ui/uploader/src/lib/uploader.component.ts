@@ -5,6 +5,7 @@ import {
 	EventEmitter,
 	Input,
 	Output,
+	TemplateRef,
 	ViewChild,
 	ViewEncapsulation,
 } from "@angular/core";
@@ -32,6 +33,8 @@ export type UploaderState = ObjectValues<typeof UPLOADER_STATE>;
 export class UploaderComponent {
 	@ViewChild("fileUploadInput", { static: true })
 	fileUploadInput!: ElementRef<HTMLInputElement>;
+
+	@Input() uploaderTemplate: TemplateRef<unknown> | undefined;
 
 	@Output() readonly stateChange = new EventEmitter<UploaderState>();
 

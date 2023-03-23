@@ -39,8 +39,22 @@
 
 <bn-uploader
 	[uploaderFn]="uploaderFn"
+	[uploaderTemplate]="customUploaderTemplate"
 	(stateChange)="onStateChange($event)"
 >
 </bn-uploader>
+
+<ng-template
+	#customUploaderTemplate
+	let-uploadInput
+>
+	<button
+		mat-fab
+		color="accent"
+		(click)="uploadInput.click()"
+	>
+		<mat-icon>attach_file</mat-icon>
+	</button>
+</ng-template>
 
 <div>{{ noteForm.value | json }}</div>
