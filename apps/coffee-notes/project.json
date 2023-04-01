@@ -15,6 +15,7 @@
 				"polyfills": ["zone.js"],
 				"tsConfig": "apps/coffee-notes/tsconfig.app.json",
 				"inlineStyleLanguage": "scss",
+				"allowedCommonJsDependencies": ["dayjs"],
 				"assets": [
 					"apps/coffee-notes/src/favicon.png",
 					"apps/coffee-notes/src/assets",

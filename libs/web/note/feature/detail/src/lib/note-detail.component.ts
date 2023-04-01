@@ -9,6 +9,7 @@ import { AngularFirestore } from "@angular/fire/compat/firestore";
 
 import { NoteService } from "@bn/web/note/data-access";
 import { UploaderState } from "@bn/web/shared/ui/uploader";
+import { BindMethodToClass } from "@bn/web/note/utils";
 
 import { v4 as uuidv4 } from "uuid";
 import { Observable } from "rxjs";
@@ -54,9 +55,6 @@ export class NoteDetailComponent {
 		}),
 	});
 
-	// todo rm, just for testing uploader
-	uploaderFn = (file: File) => this._uploaderFn(file);
-
 	constructor(
 		private fb: FormBuilder,
 		private noteService: NoteService,
@@ -64,7 +62,9 @@ export class NoteDetailComponent {
 		private angularFireStorage: AngularFireStorage,
 	) {}
 
-	_uploaderFn(file: File): Observable<number | undefined> {
+	// todo rm, just for debugging uploader
+	@BindMethodToClass
+	uploaderFn(file: File): Observable<number | undefined> {
 		const filename = file.name;
 		const userUid = "3io3MjDDe8VmOpOqPdG3YYdfGRo2"; // todo get from state
 
@@ -90,7 +90,6 @@ export class NoteDetailComponent {
 
 		return uploadTask.percentageChanges();
 	}
-
 	// todo rm
 	onStateChange(e: UploaderState) {
 		console.warn("%c>>>> onStateChange", "color: HotPink", e);

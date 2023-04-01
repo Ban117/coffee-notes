@@ -1,7 +1,7 @@
 import { ExtractTypeFromReadonlyArray } from "@bn/web/shared/utils";
 
 // TS enum replacement, similar to using a pojo with `as const` but wanted to
-// keep this as an array
+// keep this as an array/iterable
 export const ROAST_LEVEL = ["light", "medium", "dark", "espresso"] as const;
 export type RoastLevel = ExtractTypeFromReadonlyArray<typeof ROAST_LEVEL>;
 
