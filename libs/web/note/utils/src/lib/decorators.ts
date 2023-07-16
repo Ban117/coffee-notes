@@ -3,7 +3,7 @@
  */
 export function BindMethodToClass(
 	_target: unknown,
-	propertyName: string,
+	methodName: string,
 	descriptor: PropertyDescriptor,
 ): PropertyDescriptor {
 	const originalMethod = descriptor.value;
@@ -14,7 +14,7 @@ export function BindMethodToClass(
 		get() {
 			const boundMethod = originalMethod.bind(this);
 
-			Object.defineProperty(this, propertyName, {
+			Object.defineProperty(this, methodName, {
 				value: boundMethod,
 				configurable: true,
 				writable: true,

@@ -39,8 +39,6 @@ export class CountryAutocompleteComponent implements OnInit {
 
 	countries: Continent[] = COFFEE_COUNTRIES_CONTINENTS;
 
-	readonly assetPath = ASSET_PATH;
-
 	ngOnInit() {
 		this.filteredcountries = this.control.valueChanges.pipe(
 			startWith(""),

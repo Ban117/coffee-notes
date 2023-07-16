@@ -63,14 +63,15 @@ export function matcherValidator(
 		let controlsToValidate =
 			control instanceof FormGroup
 				? controlNames.length
-					? (controlNames
+					? controlNames
 							.map(name => control.get(name))
-							.filter(x => x) as AbstractControl[])
+							.filter((x): x is AbstractControl => !!x)
 					: Object.values(control.controls)
-				: (control.controls as AbstractControl[]);
+				: control.controls;
 
-		controlsToValidate = controlsToValidate.reduce(
-			(result: AbstractControl[], value: AbstractControl) => {
+		// handle nested FromGroup/FormArray
+		controlsToValidate = controlsToValidate.reduce<AbstractControl[]>(
+			(result, value) => {
 				if (value instanceof FormArray) {
 					result.push(...value.controls);
 				} else if (value instanceof FormGroup) {
@@ -78,7 +79,6 @@ export function matcherValidator(
 				} else {
 					result.push(value);
 				}
-
 				return result;
 			},
 			[],
@@ -125,6 +125,7 @@ export function matcherValidator(
 					return;
 				}
 
+				// this will only set error on 2nd or later control
 				if (
 					existingValues.length &&
 					!existingValues.includes(

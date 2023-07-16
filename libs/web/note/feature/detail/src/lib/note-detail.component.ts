@@ -90,6 +90,7 @@ export class NoteDetailComponent {
 
 		return uploadTask.percentageChanges();
 	}
+
 	// todo rm
 	onStateChange(e: UploaderState) {
 		console.warn("%c>>>> onStateChange", "color: HotPink", e);
