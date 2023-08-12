@@ -1,9 +1,10 @@
+import { flattenControls } from "./forms";
 import {
 	AbstractControl,
-	FormArray,
-	FormGroup,
 	ValidationErrors,
 	ValidatorFn,
+	isFormArray,
+	isFormGroup,
 } from "@angular/forms";
 
 interface MatcherValidatorOptions {
@@ -11,7 +12,7 @@ interface MatcherValidatorOptions {
 	controlNames: string[];
 	errorKey: string;
 	mode: MatcherValidatorMode;
-	caseSensitive: boolean;
+	caseSensitive?: boolean;
 }
 
 export enum MatcherValidatorMode {
@@ -24,65 +25,47 @@ export enum ValidatorErrorKeys {
 	unique = "error.validation.unique",
 }
 
-export function equalValidator(controlNames: string[]): ValidatorFn {
+export function equalValidator(...controlNames: string[]): ValidatorFn {
 	return matcherValidator({
 		validatorName: "equalValidator",
 		controlNames,
 		errorKey: ValidatorErrorKeys.equal,
 		mode: MatcherValidatorMode.equal,
-		caseSensitive: true,
 	});
 }
 
-export function uniqueValidator(controlNames: string[]): ValidatorFn {
+export function uniqueValidator(...controlNames: string[]): ValidatorFn {
 	return matcherValidator({
 		validatorName: "uniqueValidator",
 		controlNames,
 		errorKey: ValidatorErrorKeys.unique,
 		mode: MatcherValidatorMode.unique,
-		caseSensitive: true,
 	});
 }
 
-export function matcherValidator(
-	options: MatcherValidatorOptions,
-): ValidatorFn {
-	const { validatorName, controlNames, errorKey, mode, caseSensitive } =
-		options;
-
+export function matcherValidator({
+	validatorName,
+	controlNames,
+	errorKey,
+	mode,
+	caseSensitive = true,
+}: MatcherValidatorOptions): ValidatorFn {
 	return (control: AbstractControl): ValidationErrors | null => {
-		if (
-			!(control instanceof FormGroup) &&
-			!(control instanceof FormArray)
-		) {
+		if (!isFormArray(control) && !isFormGroup(control)) {
 			throw Error(
 				`[${validatorName}] should only be used with a FormGroup or FormArray.`,
 			);
 		}
 
-		let controlsToValidate =
-			control instanceof FormGroup
-				? controlNames.length
-					? controlNames
-							.map(name => control.get(name))
-							.filter((x): x is AbstractControl => !!x)
-					: Object.values(control.controls)
-				: control.controls;
+		let controlsToValidate = isFormGroup(control)
+			? controlNames.length
+				? controlNames
+						.map(name => control.get(name))
+						.filter((x): x is AbstractControl => !!x)
+				: Object.values(control.controls)
+			: control.controls;
 
-		// handle nested FromGroup/FormArray
-		controlsToValidate = controlsToValidate.reduce<AbstractControl[]>(
-			(result, value) => {
-				if (value instanceof FormArray) {
-					result.push(...value.controls);
-				} else if (value instanceof FormGroup) {
-					result.push(...Object.values(value.controls));
-				} else {
-					result.push(value);
-				}
-				return result;
-			},
-			[],
-		);
+		controlsToValidate = flattenControls(controlsToValidate);
 
 		let hasError = false;
 
@@ -95,11 +78,7 @@ export function matcherValidator(
 				}
 
 				const found = controlsToValidate.some((ctrl, i) =>
-					index === i
-						? false
-						: caseSensitive
-						? ctrl?.value === value
-						: ctrl?.value?.toLowerCase() === value.toLowerCase(),
+					index === i ? false : ctrl.value === value,
 				);
 
 				if (found) {
